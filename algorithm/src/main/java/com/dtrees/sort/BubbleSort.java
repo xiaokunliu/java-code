@@ -9,6 +9,7 @@ public class BubbleSort extends SortClass{
     public static void main(String[] args){
         int[] arr = {9,10,3,4,13,6,7};
         print(arr);
+
 //        bubbleSort(arr);
 //        bubbleMaxSort(arr);
         quickSort(arr,0,arr.length-1);
