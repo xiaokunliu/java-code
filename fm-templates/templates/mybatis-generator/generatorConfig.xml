@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<!--
+    使用逆向工程,是由设计好的数据库表生成java代码,同时使用逆向工程不能修改其中的java代码,否则当
+    再次使用逆向工程时会将之前手动修改的code覆盖掉,
+    因此使用逆向工程必须定义好一个规范,让开发团队知道这回事
+-->
+<generatorConfiguration>
+    <!-- xml配置文档
+        http://www.mybatis.org/generator/configreference/xmlconfig.html
+     -->
+    <!-- load your db driver jar，it is optional  -->
+    <classPathEntry location="C:\Users\wind\.m2\repository\mysql\mysql-connector-java\5.1.38\mysql-connector-java-5.1.38.jar"/>
+    <!--
+        id:the unique key for current context
+        targetRuntime:
+            >>targetRuntime:will generator the java po,mapper dao and mapper.xml,also have
+               some search cateria for select,it is good for us to select what we want by condition
+    -->
+    <context id="mybatis_generator" targetRuntime="MyBatis3">
+        <!--
+            context元素加载顺序,不能颠倒,其子元素也一样
+                <property> (0..N)
+
+                <plugin> (0..N)
+                    <property> (0..N)
+
+                <commentGenerator> (0 or 1)
+                    <property> (0..N)
+
+                <jdbcConnection> (1 Required)
+                    <property> (0..N) Note: any properties specified here will be added to the properties of the JDBC driver.
+
+                <javaTypeResolver> (0 or 1)
+                    <property> (0..N)
+
+                <javaModelGenerator> (1 Required)
+                    <property> (0..N)
+
+                <sqlMapGenerator> (0 or 1)
+                    <property> (0..N)
+
+                <javaClientGenerator> (0 or 1)
+                    <property> (0..N)
+
+                <table> (1..N)
+                    <property> (0..N)
+                    <generatedKey> (0 or 1)
+                    <columnRenamingRule> (0 or 1)
+                    <columnOverride> (0..N)
+                    <ignoreColumn> (0..N)
+        -->
+
+        <commentGenerator>
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+
+        <!-- for mysql  -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/study_mysql?useUnicode=true&amp;characterEncoding=UTF-8&amp;useServerPrepStmts=true&amp;prepStmtCacheSqlLimit=256&amp;cachePrepStmts=true&amp;prepStmtCacheSize=256&amp;rewriteBatchedStatements=true"
+                        userId="root"
+                        password="root123"/>
+        <!-- for oracle -->
+        <!-- <jdbcConnection driverClass="oracle.jdbc.OracleDriver"
+			connectionURL="jdbc:oracle:thin:@127.0.0.1:1521:yycg"
+			userId="yycg"
+			password="yycg">
+		</jdbcConnection> -->
+
+        <!-- 默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer，为 true时把JDBC DECIMAL 和
+			NUMERIC 类型解析为java.math.BigDecimal -->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+        <!-- targetProject:生成PO类的位置,javabean,与数据库的表对应的java类 -->
+        <javaModelGenerator targetPackage="com.study.mybatis_generator.po" targetProject=".\src\main\java">
+            <!-- enableSubPackages:是否让schema作为包的后缀
+                for instance:
+                    比如有一张mytable的表在一个名为myschema上,并假设目标targetProject为com.mycompany
+                    true:生成包名为com.mycompany.myschema
+                    false:生成包名为com.mycompany
+             -->
+            <property name="enableSubPackages" value="false"/>
+            <!--
+            trimStrings:去空格字符串
+                true:表示mybatis插入数据库时会将字符串去空格再保存到数据库
+                false:直接保存到数据
+                有一个好处:就是节省数据库存储字符数据的空间,避免空格字符占空间
+            -->
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!--
+            生成sqlMapper的xml配置文件
+        -->
+        <sqlMapGenerator targetPackage="com.study.mybatis_generator.dao" targetProject=".\src\main\java">
+            <property name="enableSubPackages" value="false" />
+        </sqlMapGenerator>
+
+
+        <!-- 生成java的mapper接口 -->
+        <!--
+            type:
+                >>XMLMAPPER:全部使用xml来映射配置
+                >>ANNOTATEDMAPPER:全部使用注解的方式来配置映射
+                >>MIXEDMAPPER:xml + annotation的方式
+        -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.study.mybatis_generator.dao" targetProject=".\src\main\java">
+            <!-- enableSubPackages:是否让schema作为包的后缀 -->
+            <property name="enableSubPackages" value="false" />
+        </javaClientGenerator>
+
+        <!-- 指定数据库表 -->
+        <table tableName="customers">
+            <!-- table的属性以及属性对应值 -->
+            <property name="useActualColumnNames" value="false"></property>
+
+            <!--
+                generatedKey,will generate an appropriate <selectKey> element
+                inside the generated <insert> element in the SQL map.
+                插入数据库时会自动生成主键并封装到po类的id中
+            -->
+            <generatedKey column="cust_id" sqlStatement="MySql"></generatedKey>
+
+            <!--
+                columnRenamingRule,定义一个从数据库列名称转换为java的po类的规则,与useActualColumnNames一同使用
+                useActualColumnNames
+                    >>true:cust_name  ==>  custname
+                    >>false:cust_name ==>  custName
+            -->
+            <columnRenamingRule searchString="^cust_" replaceString="cust"></columnRenamingRule>
+
+            <!--
+                ignoreColumn：忽略生成的列
+             -->
+           <!-- <ignoreColumn column=""></ignoreColumn>-->
+
+            <!--
+                对数据库的列名称,类型等自定义到相应的java的po类型中
+            -->
+           <!-- <columnOverride column="cust_zip" property="myDefineZip"></columnOverride>-->
+        </table>
+        <table tableName="orderitems">
+            <property name="useActualColumnNames" value="false"/>
+            <!--
+                searchString:正则表达式字符串
+            -->
+            <columnRenamingRule searchString="^item_" replaceString="item"/>
+           <!-- <ignoreColumn column="order_code"/>-->
+            <!-- 如果是要映射为定义好的Product的po类？如何解决
+                方法一：生成后手动操作,但是一旦重新逆向工程将被覆盖,还需要自己手动操作
+                方法二：暂时没有想到
+              -->
+            <columnOverride column="prod_id" property="productId"></columnOverride>
+            <columnOverride column="order_code" property="orderCode"/>
+        </table>
+        <table tableName="orders">
+            <property name="useActualColumnNames" value="false"/>
+            <columnRenamingRule searchString="^order_" replaceString="order"/>
+            <!--<ignoreColumn column="cust_id"/>-->
+            <columnOverride column="cust_id" property="customerId"/>
+        </table>
+        <table tableName="products">
+            <property name="useActualColumnNames" value="false"/>
+            <columnRenamingRule searchString="^prod_" replaceString="product"/>
+            <columnOverride column="vend_id" property="vendId"/>
+        </table>
+        <table tableName="productsnotes">
+            <property name="useActualColumnNames" value="false"/>
+            <columnRenamingRule searchString="^note_" replaceString="note"/>
+            <columnOverride column="prod_id" property="productId"/>
+        </table>
+        <table tableName="vendors">
+            <property name="useActualColumnNames" value="false"/>
+            <columnRenamingRule searchString="^vend_" replaceString="vend"/>
+        </table>
+    </context>
+</generatorConfiguration>

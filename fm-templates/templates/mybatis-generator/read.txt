@@ -1,0 +1,33 @@
+逆向工程
+执行之前必须先配置定义好generatorConfig.xml
+使用命令行实现(直接使用jar的命令)
+http://www.mybatis.org/generator/running/runningFromCmdLine.html
+
+使用Java代码实现
+http://www.mybatis.org/generator/running/runningWithJava.html
+
+使用maven实现
+在pom.xml进行配置
+<build>
+    <plugins>
+        <!-- mybatis的逆向工程插件 -->
+        <plugin>
+            <groupId>org.mybatis.generator</groupId>
+            <artifactId>mybatis-generator-maven-plugin</artifactId>
+            <version>1.3.2</version>
+            <configuration>
+                <verbose>true</verbose>
+                <overwrite>true</overwrite>
+            </configuration>
+            <executions>
+                <execution>
+                    <id>Generate MyBatis Project</id>
+                    <goals>
+                        <goal>generate</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+    </plugins>
+</build>
+然后直接运行maven的pom文件
