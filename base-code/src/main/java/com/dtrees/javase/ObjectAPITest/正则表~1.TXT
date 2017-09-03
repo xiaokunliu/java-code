@@ -1,0 +1,60 @@
+1.正则表达式的通配符(下面使用时需要转义)
+	.	---		可以通配任意字符
+	\s	---		代表任意一个空白(空格、TAB)		space
+	\S	---		代表任意一个非空白
+	\d	---		代表任意一个数字				digital
+	\D	---		代表任意一个非数字	
+	\w	---		代表任意一个单词字符				word
+	\W	---		代表任意一个非单词字符
+	\t 	---		制表符 ('\u0009') 
+	\n 	---		新行（换行）符 ('\u000A') 
+	\r 	---		回车符 ('\u000D') 
+	\f 	---		换页符 ('\u000C') 
+	\a 	---		报警 (bell) 符 ('\u0007') 
+	\e 	---		转义符 ('\u001B') 
+	\cx ---		对应于 x 的控制符 
+	
+2.方括号表达式
+
+	枚举			[axi]			代表a或者x或i中的任意一个字符
+	范围			[a~f]			代表a b c d e f中的任意一个字符
+	枚举与范围		[a~f5~7]		代表a b c d e f 5 6 7中的任意一个字符
+	表示求否		[^a~f]			代表不是a b c d e f中的任意一个字符
+	表示求交		[a~f&&[b~e]]	代表是a b c d e f和b c d e的交集,即(b c d e)中的任意一个字符
+	表示互斥		(com|org|cn)	代表是com或者是org或者是cn
+	
+3.特殊字符(如果要使用必须要转义)
+	(	)	[	]	{	}	\	?	*	+	^(代表行的开头)	$(代表行的结尾)	|
+
+4.表示出现的次数的字符
+	?		表示它前面出现的内容可以出现0~1次
+	*		表示它前面出现的内容可以出现0~N次
+	+		表示它前面出现的内容可以出现1~N次
+	{n,m}	表示它前面出现的内容可以出现n~m次
+	{,m}	表示它前面出现的内容最多出现m次
+	{n,}	表示它前面出现的内容最少出现n次
+	{n}		表示它前面出现的内容必须出现n次
+
+5.Java的两个工具类
+Pattern		---		正则表达式模板
+Matcher		---		匹配工具类
+	boolean find()方法	---	查找下一个匹配正则表达式的字串
+	String group()方法 		返回由以前匹配操作所匹配的输入子序列。 
+	boolean matches() 尝试将整个区域与模式匹配
+	与String的方法：
+			 boolean matches(String regex)  
+			 		告知此字符串是否匹配给定的正则表达式。 
+		 	 String replaceAll(String regex, String replacement) 
+    				使用给定的 replacement 替换此字符串所有匹配给定的正则表达式的子字符串。 
+			 String replaceFirst(String regex, String replacement) 
+          			使用给定的 replacement 替换此字符串匹配给定的正则表达式的第一个子字符串。 
+ 			 String[] split(String regex) 
+          			根据给定正则表达式的匹配拆分此字符串。 
+ 			 String[] split(String regex, int limit) 
+          			根据匹配给定的正则表达式来拆分此字符串。 
+
+		 	 
+	
+
+
+	

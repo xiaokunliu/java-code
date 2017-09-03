@@ -1,0 +1,28 @@
+国际化
+	资源文件----负责为国际化提供国际化消息
+	资源文件的文件名必须满足：baseName_语言代码_国家代码.properties
+	如果资源文件包含非西欧字符，需要使用native2ascii的工具来处理命令(%JAVA_HPME%/bin下)
+		native2ascii 要处理的文件	生成的新文件
+	
+	Locale				--	代表语言、国家的环境
+	ResourceBundle		--	负责加载指定的资源文件，而且帮助我们查找和替换
+	MessageFormat		--	负责为消息中的占位符填充参数值
+						static String format(String pattern, Object... arguments) 
+          					创建具有给定模式的 MessageFormat，并用它来格式化给定的参数。 
+          					即arguments依次替换资源文件中的占位符
+	国际化的步骤:
+		1、提供资源文件，负责为程序提供国际化消息
+		2、使用ResourceBundle加载国际化资源文件
+			static ResourceBundle getBundle(String baseName, Locale locale) 
+         			 使用指定的基本名称、语言环境和调用者的类加载器获取资源包。
+         			 getBundle(baseName,语言代码_国家代码)
+         	加载的资源文件顺序：
+         		A-->baseName_语言代码_国家代码.properties
+         		B-->baseName_语言代码.properties
+         		C-->baseName.properties
+         		--否则将抛出找不到资源文件的异常
+        3、调用String getString(String key) 
+          		从此资源包或它的某个父包中获取给定键的字符串。 
+          		
+		国际化本质就是让ResourceBundle来进行查找和替换
+		

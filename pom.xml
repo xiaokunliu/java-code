@@ -7,10 +7,12 @@
     <groupId>com.dtrees</groupId>
     <artifactId>keithl</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+
     <modules>
         <module>base-code</module>
         <module>algorithm</module>
         <module>fm-templates</module>
+        <module>web-code</module>
     </modules>
 
     <packaging>pom</packaging>

@@ -1,0 +1,5 @@
+name:dd	English78	Chiense78	Math:90	Sum:246
+name:ee	English80	Chiense78	Math:87	Sum:245
+name:bb	English90	Chiense89	Math:78	Sum:257
+name:aa	English89	Chiense78	Math:78	Sum:245
+name:cc	English79	Chiense80	Math:70	Sum:229
