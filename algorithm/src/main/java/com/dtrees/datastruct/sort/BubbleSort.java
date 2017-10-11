@@ -1,4 +1,4 @@
-package com.dtrees.sort;
+package com.dtrees.datastruct.sort;
 
 /**
  * Created by keithl on 2017/5/13.

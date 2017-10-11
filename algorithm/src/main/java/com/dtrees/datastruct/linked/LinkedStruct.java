@@ -1,4 +1,4 @@
-package com.dtrees.datastruct;
+package com.dtrees.datastruct.linked;
 
 /**
  * Created by keithl on 17-5-18.
