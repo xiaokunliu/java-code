@@ -12,6 +12,7 @@
         <module>base-code</module>
         <module>algorithm</module>
         <module>web-code</module>
+        <module>springboot-demo</module>
     </modules>
 
     <packaging>pom</packaging>

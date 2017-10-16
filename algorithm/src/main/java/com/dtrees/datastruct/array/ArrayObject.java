@@ -20,6 +20,9 @@ public class ArrayObject {
         arrList = new long[maxSize];
     }
 
+    public int getLength(){
+        return elements;
+    }
 
     public void insert(long value) {
         if (elements >= DEFAULT_SIZE){
