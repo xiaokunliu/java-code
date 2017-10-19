@@ -10,10 +10,16 @@ package com.dtrees.javase.oop;
  * @date   2015-5-29
  */
 public class VarInstanceTime {
+
+	static {
+		System.out.println("执行静态代码块");
+	}
 	
 	String name;
 	int age;
-	
+
+//	double weight = 3.0;
+
 	/**
 	 * <p>Title: </p>
 	 * <p>Description: 构造器</p>
@@ -24,7 +30,8 @@ public class VarInstanceTime {
 		System.out.println("执行构造器....");
 		this.name = name;
 		this.age = age;
-		
+		System.out.println(this.weight);
+		this.weight = 1.5;
 	}
 	
 	/**
@@ -43,7 +50,7 @@ public class VarInstanceTime {
 	/**
 	 * 最后输出的weight是3.0，不是2.0
 	 */
-	double weight = 3.0;
+	double weight = 3.0;	// 在构造代码块中执行
 	
 	@Override
 	public String toString() {
@@ -60,6 +67,8 @@ public class VarInstanceTime {
 		VarInstanceTime instanceTime = new VarInstanceTime("xiao",12);
 		
 		System.out.println(instanceTime.toString());
+
+		VarInstanceTime instanceTime2 = new VarInstanceTime("xiao",12);
 		
 		
 	}
