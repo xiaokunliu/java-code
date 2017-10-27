@@ -2,7 +2,8 @@ package com.dtrees.thread.others.day01.sync003;
 
 /**
  * 对象锁的同步和异步问题
- *
+ * 同步的概念就是共享
+ * 线程安全满足两个特性:原子性（同步）和可见性
  */
 public class MyObject {
 
@@ -15,7 +16,7 @@ public class MyObject {
 		}
 	}
 	
-	/** synchronized */
+	/** synchronized,存在异步访问,即可以多个线程并发地访问 */
 	public void method2(){
 			System.out.println(Thread.currentThread().getName());
 	}

@@ -36,7 +36,8 @@ public class MultiThread {
 		//俩个不同的对象
 		final MultiThread m1 = new MultiThread();
 		final MultiThread m2 = new MultiThread();
-		
+
+		// 两个线程分别得到自己的对象锁,不存在同步的效果,同时也不存在线程安全的问题
 		Thread t1 = new Thread(new Runnable() {
 			@Override
 			public void run() {
@@ -53,10 +54,7 @@ public class MultiThread {
 		
 		t1.start();
 		t2.start();
-		
+
+		// 若要实现tag a 执行完毕后再执行tag b,需要在num上添加static方法,作为多个线程之间的共享数据,同时方法添加上static,此时的锁是类的锁,保证是同一个锁
 	}
-	
-	
-	
-	
 }
