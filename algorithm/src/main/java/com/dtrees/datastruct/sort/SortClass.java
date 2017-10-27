@@ -24,10 +24,16 @@ public class SortClass {
     }
 
     public static void print(int[] arr){
-        for (int index = 0,len = arr.length;index < len;index ++){
-            System.out.print(arr[index]+",");
+        if(arr.length <=0 ){
+            System.out.println("[]");
+        }else{
+            StringBuilder str = new StringBuilder();
+            for (int index = 0,len = arr.length;index < len;index ++){
+               str.append(arr[index]).append(",");
+            }
+            str.deleteCharAt(str.length()-1);//delete string ","
+            System.out.println(String.format("[%s]",str.toString()));
         }
-        System.out.println();
     }
 
     /**

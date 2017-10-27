@@ -1,4 +1,4 @@
-package com.dtrees.spring.bean;
+package com.dtrees.spring.core.bean;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -20,8 +20,8 @@ public class CDPlayerConfig {
      * @ComponentScan:注解能够在Spring中启用组件扫描,默认会扫描与配置类相同的包,即会扫描这个包以及这个包下的所有子包,查找带有@Component注解的类
      * 为何设置基础包:有一个原因会促使我们明确地设置基础包，那就是我们想要将配置类放在单独的包中，使其与其他的应用代码区分开
      * 使用String设置组件扫描的基础包:
-     *      单个:basePackages = "com.dtrees.spring.bean"
-     *      多个:basePackages = {"com.dtrees.spring.bean","com.dtrees.spring.bean2",...}
+     *      单个:basePackages = "com.dtrees.spring.core.bean"
+     *      多个:basePackages = {"com.dtrees.spring.core.bean","com.dtrees.spring.bean2",...}
      * 使用Class来设置组件扫描的基础包(推荐):
      *      basePackageClasses = {},basePackageClasses属性所设置的数组中包含了类,这些类所在的包将会作为组件扫描的基础包
      * @Import({}):将多个配置类进行组合一起

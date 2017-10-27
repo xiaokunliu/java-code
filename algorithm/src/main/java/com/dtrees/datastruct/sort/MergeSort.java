@@ -47,6 +47,7 @@ public class MergeSort extends SortClass{
         int high = mid + 1;
         int index = 0;
 
+        // 根据高低下标位置来对原来的数组进行排序,依次将最小的元素存放在temp的左边
         while ( low <= mid && high <= last){
             if(arr[low] <= arr[high]){
                 temp[index++] = arr[low++];
@@ -70,4 +71,7 @@ public class MergeSort extends SortClass{
             arr[first + i] = temp[i];
         }
     }
+
+    // 使用非递归的方式
+
 }

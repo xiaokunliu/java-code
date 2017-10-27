@@ -2,7 +2,7 @@ package com.dtrees.datastruct.sort;
 
 /**
  * Created by keithl on 2017/5/13.
- * 交换排序
+ * 交换排序  -- 冒泡排序
  */
 public class BubbleSort extends SortClass{
 
@@ -21,7 +21,7 @@ public class BubbleSort extends SortClass{
        2. 对序列当中剩下的n-1个元素再次执行步骤1。
        3. 对于长度为n的序列，一共需要执行n-1轮比较,（利用while循环可以减少执行次数)
      */
-    //当前序列是最小值
+    //顺序交换
     public static void bubbleSort(int[] arr){
         int len = arr.length;
         for (int i = 1; i < len; i ++ ){
@@ -35,7 +35,7 @@ public class BubbleSort extends SortClass{
         }
     }
 
-    //当前序列最后一个是最大值
+    //倒序交换
     public static void bubbleMaxSort(int[] arr){
         int len = arr.length;
         for (int i = len-1; i >= 0; i-- ){
@@ -60,19 +60,24 @@ public class BubbleSort extends SortClass{
         int j = right;
 
         while (i!=j){
+            // 从右边开始倒序遍历,逐个与基准数进行比较,如果比基准数小,那么就会停止遍历
             while (i < j && arr[j] >= pivot){
                 j --;
             }
 
+            // 找到右边数组数据比基准数要小
             //have found the arr[right] < pivot
 
             //left
+            // 开始从左边的数组数据,如果左边的数据比基准数要大,那么就会停止遍历
             while (i < j && arr[i] <= pivot){
                 i ++;
             }
 
+            // 找到左边的数组的数据比基准数据要大
             //have found the arr[left] > pivot
 
+            // 交换左大右小的两边数据
             //swap left and right postion
             if (i < j){
                 int temp = arr[i];
@@ -80,9 +85,15 @@ public class BubbleSort extends SortClass{
                 arr[j] = temp;
             }
             //i >= j
+            // 将基准数与左边的数组数据进行交换
             arr[left] = arr[i];
+
+            // 递归调用重排
             quickSort(arr,left,i-1);
             quickSort(arr,i+1,right);
         }
     }
+
+    // 使用非递归的方式
+
 }

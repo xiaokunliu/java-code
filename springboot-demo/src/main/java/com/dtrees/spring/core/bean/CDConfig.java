@@ -1,4 +1,4 @@
-package com.dtrees.spring.bean;
+package com.dtrees.spring.core.bean;
 
 import org.springframework.context.annotation.Configuration;
 

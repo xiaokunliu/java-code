@@ -1,4 +1,4 @@
-package com.dtrees.spring.bean;
+package com.dtrees.spring.core.bean;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

@@ -1,4 +1,4 @@
-package com.dtrees.spring.bean;
+package com.dtrees.spring.core.bean;
 
 /**
  * Created by keithl on 2017/10/17.
