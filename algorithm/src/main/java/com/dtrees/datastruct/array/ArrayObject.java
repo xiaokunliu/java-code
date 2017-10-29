@@ -1,6 +1,7 @@
 package com.dtrees.datastruct.array;
 
 /**
+ * 数组的特点:查询快,但是删除和添加慢
  * 自定义数组对象,参考ArrayList
  * 优化:转换为泛型通用型 TODO
  */

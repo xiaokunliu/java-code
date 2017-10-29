@@ -5,5 +5,7 @@ package com.dtrees.datastruct.linked;
  */
 public class LinkedStruct {
 
+    public static void main(String[] args) {
 
+    }
 }
