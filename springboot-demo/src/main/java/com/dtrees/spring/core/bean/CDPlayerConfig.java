@@ -13,7 +13,7 @@ import org.springframework.context.annotation.ImportResource;
 @Configuration
 @ComponentScan(basePackageClasses = {CompactDisc.class})
 @Import(CDConfig.class)
-@ImportResource("")
+@ImportResource({"classpath:spring/beans.xml"})
 public class CDPlayerConfig {
 
     /**

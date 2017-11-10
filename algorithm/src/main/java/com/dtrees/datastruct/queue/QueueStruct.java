@@ -38,5 +38,9 @@ public class QueueStruct {
         while (!cycleQueueObject.isEmpty()){
             System.out.println(cycleQueueObject.poll());
         }
+
+        // TODO 双端队列
+
+        // 循环队列:判断是否有重复元素（在一个无重复的元素队列中）
     }
 }

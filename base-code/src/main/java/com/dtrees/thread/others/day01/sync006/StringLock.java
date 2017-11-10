@@ -8,7 +8,7 @@ public class StringLock {
 
 	public void method() {
 		//new String("字符串常量")
-		synchronized ("字符串常量") {
+		synchronized ("字符串常量") {		// 不要使用字符串常量加锁
 			try {
 				while(true){
 					System.out.println("当前线程 : "  + Thread.currentThread().getName() + "开始");

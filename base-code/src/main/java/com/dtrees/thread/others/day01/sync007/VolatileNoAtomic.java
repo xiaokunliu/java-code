@@ -4,6 +4,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * volatile关键字不具备synchronized关键字的原子性（同步）
+ * 用这个关键字来修饰的变量可以在多个线程中是可见性
  * @author alienware
  *
  */
