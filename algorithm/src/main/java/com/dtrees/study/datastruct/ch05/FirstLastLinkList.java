@@ -1,6 +1,6 @@
 package com.dtrees.study.datastruct.ch05;
 
-
+// 双端链表
 public class FirstLastLinkList {
 
 	private Node first;

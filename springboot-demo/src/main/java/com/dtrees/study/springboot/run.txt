@@ -1,0 +1,4 @@
+通过命令行参数执行Spring Boot
+java -jar xx.jar
+java -jar xx.jar --server.port=9090
+java -jar xx.jar --debug

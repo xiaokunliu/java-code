@@ -1,6 +1,6 @@
 package com.dtrees.study.datastruct.ch05;
 
-
+// 双向链表
 public class DoubleLinkList {
 
 	private Node first;

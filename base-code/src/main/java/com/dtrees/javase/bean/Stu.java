@@ -37,7 +37,4 @@ public class Stu implements Serializable{
 	public String toString() {
 		return "Stu [name=" + name + ", age=" + age + "]";
 	}
-	
-	
-
 }

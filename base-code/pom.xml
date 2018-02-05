@@ -64,5 +64,35 @@
             <artifactId>netty-all</artifactId>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.hyperic/sigar -->
+        <dependency>
+            <groupId>org.hyperic</groupId>
+            <artifactId>sigar</artifactId>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.jboss.marshalling/jboss-marshalling -->
+        <dependency>
+            <groupId>org.jboss.marshalling</groupId>
+            <artifactId>jboss-marshalling</artifactId>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.mina/mina-core -->
+        <dependency>
+            <groupId>org.apache.mina</groupId>
+            <artifactId>mina-core</artifactId>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.mina/mina-filter-codec-netty -->
+        <dependency>
+            <groupId>org.apache.mina</groupId>
+            <artifactId>mina-filter-codec-netty</artifactId>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.mina/mina-codec -->
+        <dependency>
+            <groupId>org.apache.mina</groupId>
+            <artifactId>mina-codec</artifactId>
+            <version>3.0.0-M2</version>
+        </dependency>
     </dependencies>
 </project>
