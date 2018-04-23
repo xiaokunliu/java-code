@@ -3,3 +3,11 @@ logging:
 server:
   context-path: /
   port: 9090
+spring:
+  data:
+    mongodb:
+      host: 192.168.229.148
+      username: gamble
+      password: gamblepwd
+      database: gamble
+
