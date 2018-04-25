@@ -10,4 +10,5 @@ spring:
       username: gamble
       password: gamblepwd
       database: gamble
+      port: 30000
 

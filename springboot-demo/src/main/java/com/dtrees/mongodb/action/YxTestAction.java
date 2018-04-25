@@ -14,9 +14,8 @@ public class YxTestAction {
     @Autowired
     private YxTestService yxTestService;
 
-    @RequestMapping("/list/${id}")
-    public YxTest queryOne(@PathVariable String id){
+    @RequestMapping("/list/{id}")
+    public YxTest queryOne(@PathVariable(name = "id") String id){
         return yxTestService.findOneById(id);
     }
-
 }
