@@ -5,6 +5,8 @@ import com.dtrees.mongodb.dao.YxTestRepository;
 import com.dtrees.mongodb.domain.YxTest;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.Caching;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -23,6 +25,7 @@ public class YxTestService {
         return null;
     }
 
+//    @Cacheable(value = "YxTestService_findById")
     public YxTest findById(String id){
         if(StringUtils.isNotBlank(id)){
             return yxTestRepository.findOne(id);
