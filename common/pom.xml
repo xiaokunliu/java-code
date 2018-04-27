@@ -11,7 +11,7 @@
 
     <artifactId>common</artifactId>
 
-    <name>common</name>
+    <name>com.dtrees.common</name>
     <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
 
@@ -123,6 +123,12 @@
         <dependency>
             <groupId>jdom</groupId>
             <artifactId>jdom</artifactId>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.github.wxpay/wxpay-sdk -->
+        <dependency>
+            <groupId>com.github.wxpay</groupId>
+            <artifactId>wxpay-sdk</artifactId>
         </dependency>
     </dependencies>
 
