@@ -47,22 +47,23 @@ CAS有3个操作数，内存值V，旧的预期值A，要修改的新值B。当�
         * newCachedThreadPool
         * newScheduledThreadPool
     * 自定义线程池
-     
-* Concurrent.util
-    * CountDownLatch
-    * CyclicBarrier
-    * FutureTask
-    * Semaphore
-    * 高并发
-        * PV:网站中访问量
-        * UV:用户访问量
-        * QPS:每秒查询数
-        * RT:响应时间
 
-* 重入锁、读写锁
-    * 重入锁,ReentrantLock
-    * 读写锁,ReadLock（读锁）可以并发访问,读读共享,读写和写写锁互斥
+* 线程AQS 
+    * Concurrent.util
+        * CountDownLatch
+        * CyclicBarrier
+        * FutureTask
+        * Semaphore
+        * 高并发
+            * PV:网站中访问量
+            * UV:用户访问量
+            * QPS:每秒查询数
+            * RT:响应时间
+    * 重入锁、读写锁
+        * 重入锁,ReentrantLock
+        * 读写锁,ReadLock（读锁）可以并发访问,读读共享,读写和写写锁互斥
     
 * Disruptor并发框架
     * 高性能异步处理框架
     * https://zhuanlan.zhihu.com/p/23863915
+

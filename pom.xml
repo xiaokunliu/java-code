@@ -14,8 +14,9 @@
         <module>web-code</module>
         <module>springboot-demo</module>
         <module>interview</module>
-        <module>common</module>
+        <module>commons</module>
         <module>payment</module>
+        <module>j2ee</module>
     </modules>
 
     <packaging>pom</packaging>
