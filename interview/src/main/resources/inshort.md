@@ -26,6 +26,11 @@
         * 异步编程
             * 基于线程模型的异步编程
             * 基于事件驱动的异步编程
+         * 数据库J比编程
+            * JDBC：加载数据库驱动 -- 获取DriverManager获取数据库连接对象 -- 通过连接对象获取Statement或者PreparedStatement对象 -- 执行sql -- 回收数据库资源
+            * 连接池：改善频繁打开和关闭数据库连接的情形（解决资源的频繁请求，释放所造成的性能下降）
+            * JNDI：把java应用程序访问数据库管理和配置交给存放java应用的服务器，通过JNDI的方式获取数据源DataSource实例对象
+            * JTA：
     * Web
         * Cookie与Session
         * 集群服务器如何保证session共享
