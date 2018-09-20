@@ -1,4 +1,4 @@
-package com.dtrees.thread.bases.wait;
+package com.books.cocurrency_en.thread_management.wait;
 
 import java.util.Date;
 import java.util.concurrent.TimeUnit;

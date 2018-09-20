@@ -1,4 +1,4 @@
-package com.dtrees.thread.bases;
+package com.books.cocurrency_en.thread_management;
 
 import java.util.Random;
 import java.util.concurrent.Callable;

@@ -1,4 +1,4 @@
-package com.dtrees.thread.bases.interrupt;
+package com.books.cocurrency_en.thread_management.interrupt;
 
 
 /**
