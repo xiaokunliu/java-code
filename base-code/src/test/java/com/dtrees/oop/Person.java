@@ -1,5 +1,7 @@
 package com.dtrees.oop;
 
+import java.util.concurrent.ConcurrentHashMap;
+
 /**
  * Created by keithl on 2017/11/5.
  */
@@ -8,6 +10,7 @@ public class Person {
 
     public String name = "person";
     public final static String NAME = "PERSON";
+
 
     public Person(String name){
         System.out.println("execute Person constructors ....");

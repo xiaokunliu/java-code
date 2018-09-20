@@ -1,4 +1,4 @@
-package com.books.cocurrency_en.thread_management.daemon;
+package com.books.concurrency_en.thread_management.daemon;
 
 import java.util.Date;
 import java.util.Deque;

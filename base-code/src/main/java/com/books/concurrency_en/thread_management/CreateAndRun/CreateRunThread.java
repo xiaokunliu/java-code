@@ -1,4 +1,4 @@
-package com.books.cocurrency_en.thread_management.CreateAndRun;
+package com.books.concurrency_en.thread_management.CreateAndRun;
 
 /**
  * Created by keithl on 2017/9/23.

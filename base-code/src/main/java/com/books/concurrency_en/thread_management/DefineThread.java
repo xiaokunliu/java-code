@@ -1,4 +1,4 @@
-package com.books.cocurrency_en.thread_management;
+package com.books.concurrency_en.thread_management;
 
 import java.util.Random;
 import java.util.concurrent.Callable;

@@ -1,6 +1,6 @@
-package com.books.cocurrency_en.thread_management.thredinfo;
+package com.books.concurrency_en.thread_management.thredinfo;
 
-import com.books.cocurrency_en.thread_management.CreateAndRun.Calculator;
+import com.books.concurrency_en.thread_management.CreateAndRun.Calculator;
 
 import java.io.FileWriter;
 import java.io.PrintWriter;

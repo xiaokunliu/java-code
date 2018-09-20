@@ -1,4 +1,4 @@
-package com.books.cocurrency_en.thread_management.interrupt;
+package com.books.concurrency_en.thread_management.interrupt;
 
 
 /**
