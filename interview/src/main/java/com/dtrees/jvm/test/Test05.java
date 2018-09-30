@@ -1,4 +1,4 @@
-package com.dtrees.jvm;
+package com.dtrees.jvm.test;
 
 import java.util.HashMap;
 import java.util.Map;

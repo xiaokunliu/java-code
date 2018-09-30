@@ -9,7 +9,7 @@
         * IO编程:BIO/NIO/AIO Netty/Mina
         * JVM内存模型与回收算法
         * 反射
-        * JDK8.0新特性
+        * JDK8/9新特性
         * 并发编程
             * AQS模型
             * CAS算法
@@ -30,7 +30,7 @@
             * JDBC：加载数据库驱动 -- 获取DriverManager获取数据库连接对象 -- 通过连接对象获取Statement或者PreparedStatement对象 -- 执行sql -- 回收数据库资源
             * 连接池：改善频繁打开和关闭数据库连接的情形（解决资源的频繁请求，释放所造成的性能下降）
             * JNDI：把java应用程序访问数据库管理和配置交给存放java应用的服务器，通过JNDI的方式获取数据源DataSource实例对象
-            * JTA：
+            * JTA：Java Transaction API,提供事务划分标准的接口
     * Web
         * Cookie与Session
         * 集群服务器如何保证session共享

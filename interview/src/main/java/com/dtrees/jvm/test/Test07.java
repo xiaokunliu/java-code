@@ -1,4 +1,4 @@
-package com.dtrees.jvm;
+package com.dtrees.jvm.test;
 
 
 public class Test07 {
