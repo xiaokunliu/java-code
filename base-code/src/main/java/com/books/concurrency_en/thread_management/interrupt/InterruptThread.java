@@ -1,4 +1,4 @@
-package com.dtrees.thread.bases.interrupt;
+package com.books.concurrency_en.thread_management.interrupt;
 
 
 /**

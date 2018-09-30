@@ -1,6 +1,6 @@
-package com.dtrees.thread.bases.thredinfo;
+package com.books.concurrency_en.thread_management.thredinfo;
 
-import com.dtrees.thread.bases.CreateAndRun.Calculator;
+import com.books.concurrency_en.thread_management.CreateAndRun.Calculator;
 
 import java.io.FileWriter;
 import java.io.PrintWriter;

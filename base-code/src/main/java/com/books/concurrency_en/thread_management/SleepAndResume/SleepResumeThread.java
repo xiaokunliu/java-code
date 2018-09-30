@@ -1,4 +1,4 @@
-package com.dtrees.thread.bases.SleepAndResume;
+package com.books.concurrency_en.thread_management.SleepAndResume;
 
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
