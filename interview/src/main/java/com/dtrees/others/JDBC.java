@@ -18,12 +18,12 @@ public class JDBC {
      *      2。基于应用服务器管理数据源，WebLogic或JBoos，同时能够支持JTA事务
      */
 
-//    DriverManager
-//    Connection
-//    Statement
-//    PreparedStatement
-//    ResultSet
-//    ResultSetMetaData
+    // 传统JDBC编程步骤
+//    DriverManager：加载数据库驱动
+//    Connection：获取连接
+//    Statement/PreparedStatement：创建执行sql语句的Statement/PreparedStatement
+//    ResultSet && ResultSetMetaData：获取数据库执行sql结果并将数据结果保存在resultset对象中，如果执行是的DML语句，则返回结果是一个int型整数
+//    close：回收数据库资源，即上述的ResultSet，Statement，Connection
 
     /**
      * 数据库连接池技术：改善频繁打开，关闭数据库连接的情形，可以使用连接池技术
@@ -37,7 +37,8 @@ public class JDBC {
      */
 
     /**
-     * DataSource：应用程序管理数据源和容器管理数据源
+     * DataSource：应用程序管理数据源和容器管理数据源，包含连接池和连接池管理两个部分
+     * 开源组件实现：DBCP，C3P0
      */
 
 }
