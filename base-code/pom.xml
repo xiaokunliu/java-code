@@ -94,5 +94,6 @@
             <artifactId>mina-codec</artifactId>
             <version>3.0.0-M2</version>
         </dependency>
+
     </dependencies>
 </project>

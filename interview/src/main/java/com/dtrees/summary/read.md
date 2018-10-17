@@ -19,7 +19,9 @@
 
 
 > 熟悉Java的IO/文件操作
-    * 
+    * BIO/NIO/AIO
+    * netty
+    * mina
 
 > 熟练Java集合
     * HashTable 与 HashMap的区别

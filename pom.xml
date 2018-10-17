@@ -17,6 +17,7 @@
         <module>commons</module>
         <module>payment</module>
         <module>j2ee</module>
+        <module>middleware</module>
     </modules>
 
     <packaging>pom</packaging>
@@ -128,6 +129,14 @@
                 <artifactId>spring-orm</artifactId>
                 <version>${spring-boot.version}</version>
             </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-activemq -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-activemq</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>
+
 
 
             <dependency>
@@ -343,13 +352,6 @@
                 <version>1.3.5</version>
             </dependency>
 
-            <!-- https://mvnrepository.com/artifact/com.lmax/disruptor -->
-            <dependency>
-                <groupId>com.lmax</groupId>
-                <artifactId>disruptor</artifactId>
-                <version>3.3.7</version>
-            </dependency>
-
             <!-- https://mvnrepository.com/artifact/io.netty/netty-all -->
             <dependency>
                 <groupId>io.netty</groupId>
@@ -516,6 +518,26 @@
                 <groupId>jdom</groupId>
                 <artifactId>jdom</artifactId>
                 <version>1.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.activemq</groupId>
+                <artifactId>activemq-all</artifactId>
+                <version>5.15.6</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.apache.xbean/xbean-spring -->
+            <dependency>
+                <groupId>org.apache.xbean</groupId>
+                <artifactId>xbean-spring</artifactId>
+                <version>4.9</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/com.lmax/disruptor -->
+            <dependency>
+                <groupId>com.lmax</groupId>
+                <artifactId>disruptor</artifactId>
+                <version>3.4.2</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

@@ -1,0 +1,6 @@
+debug: false
+logging:
+  level: info
+server:
+  context-path: /
+  port: 9090
