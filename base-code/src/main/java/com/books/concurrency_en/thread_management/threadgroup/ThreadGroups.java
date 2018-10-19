@@ -44,7 +44,6 @@ public class ThreadGroups {
 
 //        Interrupt the rest of the threads of the group using the  interrupt() method.
         threadGroup.interrupt();
-
     }
 
     //Implement the  waitFinish() method. It will use the  activeCount() method to
