@@ -47,3 +47,38 @@
 运行期：切面在应用运行的某个时刻被织入。一般情况下，在织入切面时，AOP容器会为目标对象动态地创建一个代理对象。Spring AOP就是以这种方式织入切面的
 ```
 
+##### Spring对AOP的支持
+
+1. 基于代理的经典Spring AOP
+2. 纯POJO切面
+3. @AspectJ注解驱动的切面
+4. 注入式AspectJ切面（适用于Spring各版本）
+
+```text
+## 切点表达式
+execution(* com.dtreess.spring.core.aop.Performance.perform(..))
+*:返回任意类型
+com.dtreess.spring.core.aop.Performance:方法所属类
+perform:类下定义的方法
+(..):方法参数,切点要选择任意的perform()方法，无论该方法的入参是什么
+
+## 使用within()指示器限制切点范围,仅包括 com.dtreess.spring.core.aop下的所有类会被拦截
+execution(* com.dtreess.spring.core.aop.Performance.perform(..)) && within( com.dtreess.spring.core.aop.*) 
+
+## 指定bean,指定aop_bean下的名称进行拦截
+execution(* com.dtreess.spring.core.aop.Performance.perform(..)) and bean('aop_bean') 
+
+## 非操作,除了bean之外的都拦截
+execution(* com.dtreess.spring.core.aop.Performance.perform(..)) and !bean('aop_bean') 
+```
+
+
+
+
+
+
+
+
+
+
+
