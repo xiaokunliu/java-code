@@ -12,6 +12,8 @@ import com.sun.xml.internal.ws.message.stream.StreamMessage;
  */
 public class JMS {
 
+    // 什么是JMS？
+
     /**
      *  P2P消息发送
      *      1. 通过JNDI查找来获取JMS连接工厂

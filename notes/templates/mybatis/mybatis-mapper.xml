@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!--
+    mapper的映射文件配置
+    cache – 对给定命名空间的缓存配置。
+    cache-ref – 对其他命名空间缓存配置的引用。
+    resultMap – 是最复杂也是最强大的元素，用来描述如何从数据库结果集中来加载对象。
+    sql – 可被其他语句引用的可重用语句块。
+    insert – 映射插入语句
+    update – 映射更新语句
+    delete – 映射删除语句
+    select – 映射查询语句
+    =====
+    parameterMap – 已被废弃！老式风格的参数映射。更好的办法是使用内联参数，此元素可能在将来被移除。文档中不会介绍此元素。
+-->
+
+<!--
+    动态sql
+        if
+        choose / when  /  otherwise
+        where ：处理条件查询的时候where查询条件全部为空的时候仍然保证查询条件正常
+        set
+        foreach
+        bind：可以从OGNL表达式中创建一个变量并将其绑定到上下文
+-->
+
+
+<mapper namespace="com.dtrees.mapper.products.ProductsMapper">
+    <resultMap id="beanResult" type="com.dtrees.domain.products.Products">
+        <id column="id" property="id" javaType="long"/>
+        <result column="shop_id" property="shopId" javaType="long"/>
+        <result column="shop_name" property="shopName" javaType="java.lang.String"/>
+        <result column="product_upc" property="productUPC" javaType="java.lang.String"/>
+        <result column="product_mpn" property="productƒMPN" javaType="java.lang.String"/>
+        <result column="product_ean" property="productEAN" javaType="java.lang.String"/>
+        <result column="product_title" property="productTitle" javaType="java.lang.String"/>
+        <result column="product_subtitle" property="productSubTitle" javaType="java.lang.String"/>
+        <result column="product_sku" property="productSKU" javaType="java.lang.String"/>
+        <result column="product_name" property="productName" javaType="java.lang.String"/>
+        <result column="create_time" property="createTime" javaType="java.util.Date"/>
+        <result column="product_thunmups" property="productThunmups" javaType="int"/>
+        <result column="product_cost" property="productCost" javaType="float"/>
+        <result column="product_sell_price" property="productSellPrice" javaType="float"/>
+        <result column="product_discount_price" property="productDiscountPrice" javaType="float"/>
+        <result column="product_promotion_id" property="productPromotionId" javaType="int"/>
+        <result column="product_listing_time" property="productListingTime" javaType="java.util.Date"/>
+        <result column="product_end_time" property="productEndTime" javaType="java.util.Date"/>
+        <result column="product_status" property="productStatus" javaType="int"/>
+        <result column="product_host_url" property="productHostUrl" javaType="java.lang.String"/>
+        <result column="product_sold" property="productSold" javaType="int"/>
+        <result column="product_stock" property="productStock" javaType="int"/>
+    </resultMap>
+
+    <sql id="base_query">
+        id, shop_id, shop_name, product_upc, product_mpn, product_ean, product_title, product_subtitle, product_sku, product_name, create_time, product_thunmups, product_cost, product_sell_price, product_discount_price, product_promotion_id, product_listing_time, product_end_time, product_status, product_host_url, product_sold, product_stock
+    </sql>
+
+    <insert id="add" parameterType="com.dtrees.domain.products.Products">
+        INSERT INTO ss_products(shop_id,
+                                shop_name,
+                                product_upc,
+                                product_mpn,
+                                product_ean,
+                                product_title,
+                                product_subtitle,
+                                product_sku,
+                                product_name,
+                                create_time,
+                                product_thunmups,
+                                product_cost,
+                                product_sell_price,
+                                product_discount_price,
+                                product_promotion_id,
+                                product_listing_time,
+                                product_end_time,
+                                product_status,
+                                product_host_url,
+                                product_sold,
+                                product_stock)
+        VALUES (#{shopId},
+                #{shopName},
+                #{productUPC},
+                #{productMPN},
+                #{productEAN},
+                #{productTitle},
+                #{productSubTitle},
+                #{productSKU},
+                #{productName},
+                #{createTime},
+                #{productThunmups},
+                #{productCost},
+                #{productSellPrice},
+                #{productDiscountPrice},
+                #{productPromotionId},
+                #{productListingTime},
+                #{productEndTime},
+                #{productStatus},
+                #{productHostUrl},
+                #{productSold},
+                #{productStock})
+    </insert>
+
+    <!--
+        动态sql -- 插入
+    -->
+    <insert id="batchInsert">
+        INSERT INTO ss_products(shop_id,
+        shop_name,
+        product_upc,
+        product_mpn,
+        product_ean,
+        product_title,
+        product_subtitle,
+        product_sku,
+        product_name,
+        create_time,
+        product_thunmups,
+        product_cost,
+        product_sell_price,
+        product_discount_price,
+        product_promotion_id,
+        product_listing_time,
+        product_end_time,
+        product_status,
+        product_host_url,
+        product_sold,
+        product_stock)
+        VALUES
+        <foreach collection="products" item="product" separator=",">
+            (
+            #{product.shopId},
+            #{product.shopName},
+            #{product.productUPC},
+            #{product.productMPN},
+            #{product.productEAN},
+            #{product.productTitle},
+            #{product.productSubTitle},
+            #{product.productSKU},
+            #{product.productName},
+            #{product.createTime},
+            #{product.productThunmups},
+            #{product.productCost},
+            #{product.productSellPrice},
+            #{product.productDiscountPrice},
+            #{product.productPromotionId},
+            #{product.productListingTime},
+            #{product.productEndTime},
+            #{product.productStatus},
+            #{product.productHostUrl},
+            #{product.productSold},
+            #{product.productStock}
+            )
+        </foreach>
+    </insert>
+
+
+    <!--
+        动态sql -- 条件查询
+    -->
+    <select id="findProductsByCondition" parameterType="com.dtrees.conditons.products.ProductCondition" resultMap="beanResult">
+        SELECT <include refid="base_query"/> FROM ss_products WHERE 1=1
+        <if test="productStatus!=-1">
+            AND product_status=#{productStatus}
+        </if>
+        <if test="productName!=null">
+            <bind name="pattern" value="'%'+productName+'%'"/>
+            AND product_name like #{pattern}
+        </if>
+        <if test="startTime!=null">
+            AND product_listing_time <![CDATA[>=]]> #{startTime}
+        </if>
+        <if test="endTime!=null">
+            AND product_listing_time <![CDATA[<=]]> #{endTime}
+        </if>
+        LIMIT #{size} OFFSET #{offset}
+    </select>
+
+    <select id="findById" parameterType="long" resultMap="beanResult">
+        SELECT <include refid="base_query"/> FROM ss_products WHERE id = #{id}
+    </select>
+
+    <select id="findBySKU" parameterType="java.lang.String" resultMap="beanResult">
+        SELECT <include refid="base_query"/> FROM ss_products WHERE product_sku = #{sku}
+    </select>
+
+    <select id="queryProductCountsByCondition" parameterType="com.dtrees.conditons.products.ProductCondition" resultType="java.lang.Integer">
+        SELECT count(0) FROM ss_products WHERE 1=1
+        <if test="productStatus!=-1">
+            AND product_status=#{productStatus}
+        </if>
+        <if test="productName!=null">
+            <bind name="pattern" value="'%'+productName+'%'"/>
+            AND product_name like #{pattern}
+        </if>
+        <if test="startTime!=null">
+            AND product_listing_time <![CDATA[>=]]> #{startTime}
+        </if>
+        <if test="endTime!=null">
+            AND product_listing_time <![CDATA[<=]]> #{endTime}
+        </if>
+    </select>
+
+    <!--
+        动态sql --- 条件更新数据
+    -->
+    <update id="updateProduct" parameterType="com.dtrees.domain.products.Products">
+        UPDATE ss_products
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="productUPC!=null">
+                product_upc=#{productUPC},
+            </if>
+            <if test="productMPN!=null">
+                product_mpn=#{productMPN},
+            </if>
+            <if test="productEAN!=null">
+                product_ean=#{productEAN},
+            </if>
+            <if test="productTitle!=null">
+                product_title=#{productTitle},
+            </if>
+            <if test="productSubTitle!=null">
+                product_subtitle=#{productSubTitle},
+            </if>
+            <if test="productPromotionId != 0">
+                product_promotion_id=#{productPromotionId},
+            </if>
+            <if test="productHostUrl!=null">
+                product_host_url=#{productHostUrl},
+            </if>
+            product_thunmups=#{productThunmups},
+            product_cost=#{productCost},
+            product_sell_price=#{productSellPrice},
+            product_discount_price=#{productDiscountPrice},
+            product_status=#{productStatus},
+            product_sold=#{productSold},
+            product_stock=#{productStock},
+        </trim>
+        WHERE id = #{id}
+    </update>
+
+    <!--
+        动态sql，批量删除
+    -->
+    <delete id="batchDeleteProducts">
+        DELETE FROM ss_products WHERE id in
+        <foreach item="id" index="index" collection="ids" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

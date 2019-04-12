@@ -1,5 +1,5 @@
 debug: false
 spring:
   profiles:
-    active: prod
+    active: dev
 

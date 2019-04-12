@@ -11,11 +11,11 @@ package com.dtrees;//package com.dtrees;
 //import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 ///**
 // * 支付主控
-// * 启动   java -jar spring-boot-pay.jar --server.port=8886
-// * linux 下 后台启动  nohup java -jar spring-boot-pay.jar --server.port=8886 &
+// * 启动   java -jar ssm-boot-pay.jar --server.port=8886
+// * linux 下 后台启动  nohup java -jar ssm-boot-pay.jar --server.port=8886 &
 // */
 //@SpringBootApplication
-//@ImportResource({"classpath:spring-context-dubbo.xml"})
+//@ImportResource({"classpath:ssm-context-dubbo.xml"})
 //@Controller
 //public class Application extends WebMvcConfigurerAdapter {
 //	private static final Logger logger = Logger.getLogger(Application.class);

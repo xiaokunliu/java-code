@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!--
+    官方文档： http://www.mybatis.org/mybatis-3/zh/sqlmap-xml.html
+    mapper的映射文件配置
+    cache – 对给定命名空间的缓存配置。
+    cache-ref – 对其他命名空间缓存配置的引用。
+    resultMap – 是最复杂也是最强大的元素，用来描述如何从数据库结果集中来加载对象。
+    sql – 可被其他语句引用的可重用语句块。
+    insert – 映射插入语句
+    update – 映射更新语句
+    delete – 映射删除语句
+    select – 映射查询语句
+    =====
+    parameterMap – 已被废弃！老式风格的参数映射。更好的办法是使用内联参数，此元素可能在将来被移除。文档中不会介绍此元素。
+
+    核心resultMap
+        constructor - 用于在实例化类时，注入结果到构造方法中
+        idArg - ID 参数；标记出作为 ID 的结果可以帮助提高整体性能
+        arg - 将被注入到构造方法的一个普通结果
+        id – 一个 ID 结果；标记出作为 ID 的结果可以帮助提高整体性能
+        result – 注入到字段或 JavaBean 属性的普通结果
+        association – 一个复杂类型的关联；许多结果将包装成这种类型
+        嵌套结果映射 – 关联本身可以是一个 resultMap 元素，或者从别处引用一个
+        collection – 一个复杂类型的集合
+        嵌套结果映射 – 集合本身可以是一个 resultMap 元素，或者从别处引用一个
+        discriminator – 使用结果值来决定使用哪个 resultMap
+        case – 基于某些值的结果映射
+        嵌套结果映射 – case 本身可以是一个 resultMap 元素，因此可以具有相同的结构和元素，或者从别处引用一个
+        属性：
+            id	当前命名空间中的一个唯一标识，用于标识一个结果映射。
+            type	类的完全限定名, 或者一个类型别名（关于内置的类型别名，可以参考上面的表格）。
+            autoMapping	如果设置这个属性，MyBatis将会为本结果映射开启或者关闭自动映射。 这个属性会覆盖全局的属性 autoMappingBehavior。默认值：未设置（unset）
+-->
+
+<mapper namespace="com.dtrees.mapper.products.ProductsMapper">
+    <resultMap id="beanResult" type="com.dtrees.domain.products.Products" autoMapping="true">
+        <id column="id" property="id" javaType="long"/>
+        <result column="shop_id" property="shopId" javaType="long"/>
+        <result column="shop_name" property="shopName" javaType="java.lang.String"/>
+        <result column="product_upc" property="productUPC" javaType="java.lang.String"/>
+        <result column="product_mpn" property="productƒMPN" javaType="java.lang.String"/>
+        <result column="product_ean" property="productEAN" javaType="java.lang.String"/>
+        <result column="product_title" property="productTitle" javaType="java.lang.String"/>
+        <result column="product_subtitle" property="productSubTitle" javaType="java.lang.String"/>
+        <result column="product_sku" property="productSKU" javaType="java.lang.String"/>
+        <result column="product_name" property="productName" javaType="java.lang.String"/>
+        <result column="create_time" property="createTime" javaType="java.util.Date"/>
+        <result column="product_thunmups" property="productThunmups" javaType="int"/>
+        <result column="product_cost" property="productCost" javaType="float"/>
+        <result column="product_sell_price" property="productSellPrice" javaType="float"/>
+        <result column="product_discount_price" property="productDiscountPrice" javaType="float"/>
+        <result column="product_promotion_id" property="productPromotionId" javaType="int"/>
+        <result column="product_listing_time" property="productListingTime" javaType="java.util.Date"/>
+        <result column="product_end_time" property="productEndTime" javaType="java.util.Date"/>
+        <result column="product_status" property="productStatus" javaType="int"/>
+        <result column="product_host_url" property="productHostUrl" javaType="java.lang.String"/>
+        <result column="product_sold" property="productSold" javaType="int"/>
+        <result column="product_stock" property="productStock" javaType="int"/>
+
+        <!--
+            一对一映射
+        -->
+        <association property="" javaType="" column="" select=""></association>
+
+        <!--
+            一对多映射, 设置懒加载lazy
+        -->
+        <collection property="" javaType="" column=""  ofType="" select="" fetchType="lazy"></collection>
+
+        <!--
+            多对多结合collection以及select进行操作
+        -->
+
+    </resultMap>
+
+    <sql id="base_query">
+        id, shop_id, shop_name, product_upc, product_mpn, product_ean, product_title, product_subtitle, product_sku, product_name, create_time, product_thunmups, product_cost, product_sell_price, product_discount_price, product_promotion_id, product_listing_time, product_end_time, product_status, product_host_url, product_sold, product_stock
+    </sql>
+
+    <!--
+        select 语句（本质上还是回归到JDBC的核心）
+            id	在命名空间中唯一的标识符，可以被用来引用这条语句
+            parameterType	将会传入这条语句的参数类的完全限定名或别名。这个属性是可选的，因为 MyBatis 可以通过类型处理器（TypeHandler） 推断出具体传入语句的参数，默认值为未设置（unset）
+            parameterMap : 过时不用
+            resultType	从这条语句中返回的期望类型的类的完全限定名或别名。 注意如果返回的是集合，那应该设置为集合包含的类型，而不是集合本身。可以使用 resultType 或 resultMap，但不能同时使用
+            resultMap	外部 resultMap 的命名引用。结果集的映射是 MyBatis 最强大的特性，如果你对其理解透彻，许多复杂映射的情形都能迎刃而解。可以使用 resultMap 或 resultType，但不能同时使用。
+            flushCache	将其设置为 true 后，只要语句被调用，都会导致本地缓存和二级缓存被清空，默认值：false
+            useCache	将其设置为 true 后，将会导致本条语句的结果被二级缓存缓存起来，默认值：对 select 元素为 true
+            timeout	这个设置是在抛出异常之前，驱动程序等待数据库返回请求结果的秒数。默认值为未设置（unset）（依赖驱动）
+            fetchSize	这是一个给驱动的提示，尝试让驱动程序每次批量返回的结果行数和这个设置值相等。 默认值为未设置（unset）（依赖驱动）
+            statementType	STATEMENT，PREPARED 或 CALLABLE 中的一个。这会让 MyBatis 分别使用 Statement，PreparedStatement 或 CallableStatement，默认值：PREPARED
+            resultSetType	FORWARD_ONLY，SCROLL_SENSITIVE, SCROLL_INSENSITIVE 或 DEFAULT（等价于 unset） 中的一个，默认值为 unset （依赖驱动）
+            databaseId	如果配置了数据库厂商标识（databaseIdProvider），MyBatis 会加载所有的不带 databaseId 或匹配当前 databaseId 的语句；如果带或者不带的语句都有，则不带的会被忽略
+            resultOrdered   这个设置仅针对嵌套结果 select 语句适用：如果为 true，就是假设包含了嵌套结果集或是分组，这样的话当返回一个主结果行的时候，就不会发生有对前面结果集的引用的情况。
+                            这就使得在获取嵌套的结果集的时候不至于导致内存不够用。默认值：false
+            resultSets	这个设置仅对多结果集的情况适用。它将列出语句执行后返回的结果集并给每个结果集一个名称，名称是逗号分隔的。
+    -->
+    <select
+            id="selectPerson"
+            parameterType="int"
+            parameterMap="deprecated"
+            resultType="hashmap"
+            resultMap="personResultMap"
+            flushCache="false"
+            useCache="true"
+            timeout="10"
+            fetchSize="256"
+            statementType="PREPARED"
+            resultSetType="FORWARD_ONLY">
+        select * from ss_person where id=#{id}
+    </select>
+
+    <!--
+        数据变更insert/update/delete
+            id	命名空间中的唯一标识符，可被用来代表这条语句。
+            parameterType	将要传入语句的参数的完全限定类名或别名。这个属性是可选的，因为 MyBatis 可以通过类型处理器推断出具体传入语句的参数，默认值为未设置（unset）。
+            flushCache	将其设置为 true 后，只要语句被调用，都会导致本地缓存和二级缓存被清空，默认值：true（对于 insert、update 和 delete 语句）。
+            timeout	这个设置是在抛出异常之前，驱动程序等待数据库返回请求结果的秒数。默认值为未设置（unset）（依赖驱动）。
+            statementType	STATEMENT，PREPARED 或 CALLABLE 的一个。这会让 MyBatis 分别使用 Statement，PreparedStatement 或 CallableStatement，默认值：PREPARED。
+            useGeneratedKeys	（仅对 insert 和 update 有用）这会令 MyBatis 使用 JDBC 的 getGeneratedKeys 方法来取出由数据库内部生成的主键（比如：像 MySQL 和 SQL Server 这样的关系数据库管理系统的自动递增字段），默认值：false。
+            keyProperty	（仅对 insert 和 update 有用）唯一标记一个属性，MyBatis 会通过 getGeneratedKeys 的返回值或者通过 insert 语句的 selectKey 子元素设置它的键值，默认值：未设置（unset）。如果希望得到多个生成的列，也可以是逗号分隔的属性名称列表。
+            keyColumn	（仅对 insert 和 update 有用）通过生成的键值设置表中的列名，这个设置仅在某些数据库（像 PostgreSQL）是必须的，当主键列不是表中的第一列的时候需要设置。如果希望使用多个生成的列，也可以设置为逗号分隔的属性名称列表。
+            databaseId	如果配置了数据库厂商标识（databaseIdProvider），MyBatis 会加载所有的不带 databaseId 或匹配当前 databaseId 的语句；如果带或者不带的语句都有，则不带的会被忽略。
+    -->
+    <insert
+            id="insertAuthor"
+            parameterType="domain.blog.Author"
+            flushCache="true"
+            statementType="PREPARED"
+            keyProperty=""
+            keyColumn=""
+            useGeneratedKeys=""
+            timeout="20">
+
+    </insert>
+
+    <update
+            id="updateAuthor"
+            parameterType="domain.blog.Author"
+            flushCache="true"
+            statementType="PREPARED"
+            timeout="20">
+
+    </update>
+
+    <delete
+            id="deleteAuthor"
+            parameterType="domain.blog.Author"
+            flushCache="true"
+            statementType="PREPARED"
+            timeout="20">
+    </delete>
+
+    <!--
+        insert 自动生成组主键
+    -->
+    <insert id="insertAuthor" useGeneratedKeys="true"
+            keyProperty="id">
+        insert into Author (username,password,email,bio)
+        values (#{username},#{password},#{email},#{bio})
+    </insert>
+
+    <insert id="insertAuthor" useGeneratedKeys="true"
+            keyProperty="id">
+        insert into Author (username, password, email, bio) values
+        <foreach item="item" collection="list" separator=",">
+            (#{item.username}, #{item.password}, #{item.email}, #{item.bio})
+        </foreach>
+    </insert>
+
+    <!--
+        仅供参考
+    -->
+    <insert id="insertAuthor">
+        <selectKey keyProperty="id" resultType="int" order="BEFORE">
+            select CAST(RANDOM()*1000000 as INTEGER) a from SYSIBM.SYSDUMMY1
+        </selectKey>
+        insert into Author
+        (id, username, password, email,bio, favourite_section)
+        values
+        (#{id}, #{username}, #{password}, #{email}, #{bio}, #{favouriteSection,jdbcType=VARCHAR})
+    </insert>
+
+
+    <!--
+        参数设置
+    -->
+    <!--
+        #{property,javaType=int,jdbcType=NUMERIC}，，参数也可以指定一个特殊的数据类型
+        #{age,javaType=int,jdbcType=NUMERIC,typeHandler=MyTypeHandler}，指定一个特殊的类型处理器类（或别名）
+        #{height,javaType=double,jdbcType=NUMERIC,numericScale=2}   对于数值类型，还有一个小数保留位数的设置，来指定小数点后保留的位数
+
+        mode 属性允许你指定 IN，OUT 或 INOUT 参数。如果参数的 mode 为 OUT 或 INOUT，就像你在指定输出参数时所期望的行为那样，参数对象的属性实际值将会被改变。 如果 mode 为 OUT（或 INOUT），而且 jdbcType 为 CURSOR（也就是 Oracle 的 REFCURSOR），你必须指定一个 resultMap 引用来将结果集 ResultMap 映射到参数的类型上。要注意这里的 javaType 属性是可选的，如果留空并且 jdbcType 是 CURSOR，它会被自动地被设为 ResultMap
+        #{department, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=departmentResultMap}
+
+        MyBatis 也支持很多高级的数据类型，比如结构体（structs），但是当使用 out 参数时，你必须显式设置类型的名称。比如（再次提示，在实际中要像这样不能换行）：
+        #{middleInitial, mode=OUT, jdbcType=STRUCT, jdbcTypeName=MY_TYPE, resultMap=departmentResultMap}
+    -->
+
+
+    <!--
+        字符串替换
+        使用 #{} 格式的语法会导致 MyBatis 创建 PreparedStatement 参数占位符并安全地设置参数（就像使用 ? 一样）
+    -->
+
+
+    <!--
+        结果映射
+    -->
+
+
+    <!--
+        自动映射
+    -->
+
+
+    <!--
+        二级缓存
+        二级缓存是事务性的。这意味着，当 SqlSession 完成并提交时，或是完成并回滚，但没有执行 flushCache=true 的 insert/delete/update 语句时，缓存会获得更新
+    -->
+    <!--默认情况下，只启用了本地的会话缓存，它仅仅对一个会话中的数据进行缓存。 要启用全局的二级缓存，只需要在你的 SQL 映射文件中添加一行
+        同时需要在全局配置文件中增加cacheEnabled为true， 缓存只作用于 cache 标签所在的映射文件中的语句
+
+    -->
+    <!--<cache/>-->
+    <!--
+        上述配置的效果如下：
+            映射语句文件中的所有 select 语句的结果将会被缓存。
+            映射语句文件中的所有 insert、update 和 delete 语句会刷新缓存。
+            缓存会使用最近最少使用算法（LRU, Least Recently Used）算法来清除不需要的缓存。
+            缓存不会定时进行刷新（也就是说，没有刷新间隔）。
+            缓存会保存列表或对象（无论查询方法返回哪种）的 1024 个引用。
+            缓存会被视为读/写缓存，这意味着获取到的对象并不是共享的，可以安全地被调用者修改，而不干扰其他调用者或线程所做的潜在修改
+    -->
+    <!--
+        这个更高级的配置创建了一个 FIFO 缓存，每隔 60 秒刷新，最多可以存储结果对象或列表的 512 个引用，而且返回的对象被认为是只读的，因此对它们进行修改可能会在不同线程中的调用者产生冲突
+    -->
+    <cache eviction="FIFO" flushInterval="60000" size="512" readOnly="true"/>
+    <!--
+        可用的清除策略有：
+            LRU – 最近最少使用：移除最长时间不被使用的对象。
+            FIFO – 先进先出：按对象进入缓存的顺序来移除它们。
+            SOFT – 软引用：基于垃圾回收器状态和软引用规则移除对象。
+            WEAK – 弱引用：更积极地基于垃圾收集器状态和弱引用规则移除对象。
+            默认的清除策略是 LRU。
+            flushInterval（刷新间隔）属性可以被设置为任意的正整数，设置的值应该是一个以毫秒为单位的合理时间量。 默认情况是不设置，也就是没有刷新间隔，缓存仅仅会在调用语句时刷新。
+            size（引用数目）属性可以被设置为任意正整数，要注意欲缓存对象的大小和运行环境中可用的内存资源。默认值是 1024。
+            readOnly（只读）属性可以被设置为 true 或 false。只读的缓存会给所有调用者返回缓存对象的相同实例。 因此这些对象不能被修改。这就提供了可观的性能提升。而可读写的缓存会（通过序列化）返回缓存对象的拷贝。 速度上会慢一些，但是更安全，因此默认值是 false
+    -->
+
+    <!--
+        自定义缓存或者是使用第三方缓存
+        对上述的缓存的配置（如清除策略、可读或可读写等），不能应用于自定义缓存
+        type 属性指定的类必须实现 org.mybatis.cache.Cache 接口，且提供一个接受 String 参数作为 id 的构造器。 这个接口是 MyBatis 框架中许多复杂的接口之一，但是行为却非常简单。
+    -->
+    <!--<cache type="com.domain.something.MyCustomCache"/>-->
+    <!--
+        为了对你的缓存进行配置，只需要简单地在你的缓存实现中添加公有的 JavaBean 属性，然后通过 cache 元素传递属性值，例如，下面的例子将在你的缓存实现上调用一个名为 setCacheFile(String file) 的方法
+    -->
+    <cache type="com.domain.something.MyCustomCache">
+        <property name="cacheFile" value="/tmp/my-custom-cache.tmp"/>
+    </cache>
+
+    <!--
+        请注意，缓存的配置和缓存实例会被绑定到 SQL 映射文件的命名空间中。 因此，同一命名空间中的所有语句和缓存将通过命名空间绑定在一起。
+        每条语句可以自定义与缓存交互的方式，或将它们完全排除于缓存之外，这可以通过在每条语句上使用两个简单属性来达成。 默认情况下，语句会这样来配置
+    -->
+    <!--<select ... flushCache="false" useCache="true"/>-->
+    <!--<insert ... flushCache="true"/>-->
+    <!--<update ... flushCache="true"/>-->
+    <!--<delete ... flushCache="true"/>-->
+
+    <!--
+        对某一命名空间的语句，只会使用该命名空间的缓存进行缓存或刷新。 但你可能会想要在多个命名空间中共享相同的缓存配置和实例。要实现这种需求，你可以使用 cache-ref 元素来引用另一个缓存。
+        比如在SomeMapper的配置文件中配置缓存，想要在当前文件中使用SomeMapper缓存，则配置如下
+    -->
+    <cache-ref namespace="com.someone.application.data.SomeMapper"/>
+</mapper>

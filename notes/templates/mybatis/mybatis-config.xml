@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+		PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<!--
+		官网文档：http://www.mybatis.org/mybatis-3/zh/configuration.html
+	-->
+
+	<!-- 加载属性文件 -->
+	<!--
+		如果属性在不只一个地方进行了配置，那么 MyBatis 将按照下面的顺序来加载：
+			在 properties 元素体内指定的属性首先被读取。
+			然后根据 properties 元素中的 resource 属性读取类路径下属性文件或根据 url 属性指定的路径读取属性文件，并覆盖已读取的同名属性。
+			最后读取作为方法参数传递的属性，并覆盖已读取的同名属性。
+
+	-->
+	<properties resource="db.properties">
+		<!--properties中还可以配置一些属性名和属性值  -->
+		<!-- <property name="jdbc.driver" value=""/> -->
+	</properties>
+
+
+	<!--
+		完整的settings配置， 全局配置参数，需要时再设置
+	-->
+	<settings>
+		<!--
+			开启二级缓存，注意是配置文件中的mapper缓存管理，如果要开启二级缓存，这里必须设置为true
+			全局地开启或关闭配置文件中的所有映射器已经配置的任何缓存， 默认为true
+		-->
+		<setting name="cacheEnabled" value="true"/>
+		<!--  配置延迟加载：
+					lazyLoadingEnabled
+					aggressiveLazyLoading
+		-->
+		<!--
+			延迟加载的全局开关。当开启时，所有关联对象都会延迟加载。 特定关联关系中可通过设置 fetchType 属性来覆盖该项的开关状态
+			默认为false
+		-->
+		<setting name="lazyLoadingEnabled" value="true"/>
+		<!--
+			当开启时，任何方法的调用都会加载该对象的所有属性。 否则，每个属性会按需加载（参考 lazyLoadTriggerMethods)。
+			默认为false （在 3.4.1 及之前的版本默认值为 true）
+		-->
+		<setting name="aggressiveLazyLoading" value="false"/>
+
+		<!--
+			是否允许单一语句返回多结果集（需要驱动支持
+			默认为true
+		-->
+		<setting name="multipleResultSetsEnabled" value="true"/>
+
+		<!--
+			使用列标签代替列名。不同的驱动在这方面会有不同的表现，具体可参考相关驱动文档或通过测试这两种不同的模式来观察所用驱动的结果
+			默认为true
+		-->
+		<setting name="useColumnLabel" value="true"/>
+
+		<!--
+			允许 JDBC 支持自动生成主键，需要驱动支持。 如果设置为 true 则这个设置强制使用自动生成主键，尽管一些驱动不能支持但仍可正常工作（比如 Derby）
+			默认为false，
+		-->
+		<setting name="useGeneratedKeys" value="false"/>
+
+		<!--
+			指定 MyBatis 应如何自动映射列到字段或属性。 NONE 表示取消自动映射；PARTIAL 只会自动映射没有定义嵌套结果集映射的结果集。 FULL会自动映射任意复杂的结果集（无论是否嵌套）
+			NONE, PARTIAL, FULL
+		-->
+		<setting name="autoMappingBehavior" value="PARTIAL"/>
+
+		<!--
+			指定发现自动映射目标未知列（或者未知属性类型）的行为。
+				NONE: 不做任何反应
+				WARNING: 输出提醒日志 ('org.apache.ibatis.session.AutoMappingUnknownColumnBehavior' 的日志等级必须设置为 WARN)
+				FAILING: 映射失败 (抛出 SqlSessionException)
+			NONE, WARNING, FAILING
+			默认为None
+		-->
+		<setting name="autoMappingUnknownColumnBehavior" value="WARNING"/>
+
+		<!--
+			配置默认的执行器。SIMPLE 就是普通的执行器；REUSE 执行器会重用预处理语句（prepared statements）； BATCH 执行器将重用语句并执行批量更新
+			SIMPLE REUSE BATCH
+			默认为SIMPLE
+		-->
+		<setting name="defaultExecutorType" value="SIMPLE"/>
+
+		<!--
+			设置超时时间，它决定驱动等待数据库响应的秒数，任意正整数，未设置为null
+		-->
+		<setting name="defaultStatementTimeout" value="25"/>
+
+		<!--
+			为驱动的结果集获取数量（fetchSize）设置一个提示值。此参数只可以在查询设置中被覆盖，任意正整数，未设置为null
+		-->
+		<setting name="defaultFetchSize" value="100"/>
+
+		<!--
+			允许在嵌套语句中使用分页（RowBounds）。如果允许使用则设置为 false
+		-->
+		<setting name="safeRowBoundsEnabled" value="false"/>
+
+		<!--
+			允许在嵌套语句中使用分页（ResultHandler）。如果允许使用则设置为 false
+		-->
+		<setting name="mapUnderscoreToCamelCase" value="false"/>
+
+		<!--
+			MyBatis 利用本地缓存机制（Local Cache）防止循环引用（circular references）和加速重复嵌套查询。 默认值为 SESSION，这种情况下会缓存一个会话中执行的所有查询。 若设置值为 STATEMENT，本地会话仅用在语句执行上，对相同 SqlSession 的不同调用将不会共享数据。
+			SESSION | STATEMENT
+			默认为SESSION
+		-->
+		<setting name="localCacheScope" value="SESSION"/>
+
+		<!--
+			当没有为参数提供特定的 JDBC 类型时，为空值指定 JDBC 类型。 某些驱动需要指定列的 JDBC 类型，多数情况直接用一般类型即可，比如 NULL、VARCHAR 或 OTHER
+		-->
+		<setting name="jdbcTypeForNull" value="OTHER"/>
+
+		<!--
+			指定哪个对象的方法触发一次延迟加载
+		-->
+		<setting name="lazyLoadTriggerMethods" value="equals,clone,hashCode,toString"/>
+
+		<!--
+			指定动态 SQL 生成的默认语言, 一个类型别名或完全限定类名
+		-->
+		<setting name="defaultScriptingLanguage" value="org.apache.ibatis.scripting.xmltags.XMLLanguageDriver"/>
+
+		<!--
+			指定 Enum 使用的默认 TypeHandler 。（新增于 3.4.5）一个类型别名或完全限定类名
+		-->
+		<setting name="defaultEnumTypeHandler" value="org.apache.ibatis.type.EnumTypeHandler"/>
+
+		<!--
+			指定当结果集中值为 null 的时候是否调用映射对象的 setter（map 对象时为 put）方法，这在依赖于 Map.keySet() 或 null 值初始化的时候比较有用。
+			注意基本类型（int、boolean 等）是不能设置成 null 的
+		-->
+		<setting name="callSettersOnNulls" value="false"/>
+
+		<!--
+			当返回行的所有列都是空时，MyBatis默认返回 null。 当开启这个设置时，MyBatis会返回一个空实例。
+			请注意，它也适用于嵌套的结果集 （如集合或关联）。（新增于 3.4.2）
+		-->
+		<setting name="returnInstanceForEmptyRow" value="false"/>
+
+		<!--
+			指定 MyBatis 增加到日志名称的前缀,任何字符串
+			未设置
+		-->
+		<setting name="logPrefix" value=""/>
+
+		<!--
+			指定 MyBatis 所用日志的具体实现，未指定时将自动查找
+			SLF4J | LOG4J | LOG4J2 | JDK_LOGGING | COMMONS_LOGGING | STDOUT_LOGGING | NO_LOGGING
+			未设置
+		-->
+		<setting name="logImpl" value=""/>
+
+		<!--
+			指定 Mybatis 创建具有延迟加载能力的对象所用到的代理工具
+			CGLIB | JAVASSIST	J
+			默认为JAVASSIST （MyBatis 3.3 以上）
+		-->
+		<setting name="proxyFactory" value="JAVASSIST"/>
+
+		<!--
+			指定 VFS 的实现， 自定义 VFS 的实现的类全限定名，以逗号分隔。
+			未设置
+		-->
+		<setting name="vfsImpl" value=""/>
+
+		<!--
+			允许使用方法签名中的名称作为语句参数名称。 为了使用该特性，你的项目必须采用 Java 8 编译，并且加上 -parameters 选项。（新增于 3.4.1）
+		-->
+		<setting name="useActualParamName" value="true"/>
+
+		<!--
+			指定一个提供 Configuration 实例的类。 这个被返回的 Configuration 实例用来加载被反序列化对象的延迟加载属性值。
+			这个类必须包含一个签名为static Configuration getConfiguration() 的方法。（新增于 3.2.3）
+			未设置
+		-->
+		<setting name="configurationFactory" value=""/>
+	</settings>
+
+	<!-- 别名定义 -->
+	<typeAliases>
+		<!-- 针对单个别名定义
+		type：类型的路径
+		alias：别名
+		 -->
+		<!--<typeAlias type="com.study.db.po.Vendor" alias="vend"/>-->
+
+		<!-- 批量别名定义 
+		指定包名，mybatis自动扫描包中的po类，自动定义别名，别名就是类名（首字母大写或小写都可以）
+		-->
+		<package name="com.study.mybatis.po"/>
+	</typeAliases>
+
+	<!--
+		添加自定义的mybatis对象工厂
+		MyBatis 每次创建结果对象的新实例时，它都会使用一个对象工厂（ObjectFactory）实例来完成。 默认的对象工厂需要做的仅仅是实例化目标类，要么通过默认构造方法，要么在参数映射存在的时候通过参数构造方法来实例化。
+		如果想覆盖对象工厂的默认行为，则可以通过创建自己的对象工厂来实现
+		ExampleObjectFactory为自定义的对象工厂
+	-->
+	<!--<objectFactory type="com.dtrees.study.springmvc_mybatis.tools.ExampleObjectFactory">-->
+	<!--<property name="someProperty" value="100"/>-->
+	<!--</objectFactory>-->
+
+	<!--
+		MyBatis 允许你在已映射语句执行过程中的某一点进行拦截调用。默认情况下，MyBatis 允许使用插件来拦截的方法调用包括：
+			Executor (update, query, flushStatements, commit, rollback, getTransaction, close, isClosed)
+			ParameterHandler (getParameterObject, setParameters)
+			ResultSetHandler (handleResultSets, handleOutputParameters)
+			StatementHandler (prepare, parameterize, batch, update, query)
+			这些类中方法的细节可以通过查看每个方法的签名来发现，或者直接查看 MyBatis 发行包中的源代码。 如果你想做的不仅仅是监控方法的调用，那么你最好相当了解要重写的方法的行为。 因为如果在试图修改或重写已有方法的行为的时候，你很可能在破坏 MyBatis 的核心模块。 这些都是更低层的类和方法，所以使用插件的时候要特别当心。
+
+			通过 MyBatis 提供的强大机制，使用插件是非常简单的，只需实现 Interceptor 接口，并指定想要拦截的方法签名即可
+	-->
+	<!--<plugins>-->
+		<!--<plugin interceptor="com.dtrees.study.springmvc_mybatis.tools.ExamplePlugin">-->
+			<!--<property name="someProperty" value="100"/>-->
+		<!--</plugin>-->
+	<!--</plugins>-->
+
+
+	<!-- 和spring整合后 environments配置将废除-->
+	<environments default="development">
+		<environment id="development">
+		<!-- 使用jdbc事务管理，事务控制由mybatis-->
+			<transactionManager type="JDBC" />
+		<!-- 数据库连接池，由mybatis管理-->
+			<!--
+				UNPOOLED– 这个数据源的实现只是每次被请求时打开和关闭连接。虽然有点慢，但对于在数据库连接可用性方面没有太高要求的简单应用程序来说，是一个很好的选择。 不同的数据库在性能方面的表现也是不一样的，对于某些数据库来说，使用连接池并不重要，这个配置就很适合这种情形
+				POOLED– 这种数据源的实现利用“池”的概念将 JDBC 连接对象组织起来，避免了创建新的连接实例时所必需的初始化和认证时间
+				JNDI – 这个数据源的实现是为了能在如 EJB 或应用服务器这类容器中使用，容器可以集中或在外部配置数据源，然后放置一个 JNDI 上下文的引用。这种数据源配置只需要两个属性：
+					initial_context – 这个属性用来在 InitialContext 中寻找上下文（即，initialContext.lookup(initial_context)）。这是个可选属性，如果忽略，那么将会直接从 InitialContext 中寻找 data_source 属性。
+					data_source – 这是引用数据源实例位置的上下文的路径。提供了 initial_context 配置时会在其返回的上下文中进行查找，没有提供时则直接在 InitialContext 中查找
+			-->
+			<dataSource type="POOLED">
+				<property name="driver" value="${jdbc.mysql.driver}" />
+				<property name="url" value="${jdbc.mysql.url}" />
+				<property name="username" value="${jdbc.mysql.username}" />
+				<property name="password" value="${jdbc.mysql.password}" />
+			</dataSource>
+		</environment>
+	</environments>
+
+	<!--
+		数据库厂商标识
+		MyBatis 会加载不带 databaseId 属性和带有匹配当前数据库 databaseId 属性的所有语句。 如果同时找到带有 databaseId 和不带 databaseId 的相同语句，则后者会被舍弃
+		DB_VENDOR 对应的 databaseIdProvider 实现会将 databaseId 设置为 DatabaseMetaData#getDatabaseProductName() 返回的字符串。 由于通常情况下这些字符串都非常长而且相同产品的不同版本会返回不同的值，所以你可能想通过设置属性别名来使其变短
+		所以可以设置如下
+	-->
+	<!--<databaseIdProvider type="DB_VENDOR">-->
+		<!--<property name="SQL Server" value="sqlserver"/>-->
+		<!--<property name="DB2" value="db2"/>-->
+		<!--<property name="Oracle" value="oracle" />-->
+	<!--</databaseIdProvider>-->
+	<!--
+		在上述的数据库厂商设置中
+		在提供了属性别名时，DB_VENDOR 的 databaseIdProvider 实现会将 databaseId 设置为第一个数据库产品名与属性中的名称相匹配的值，如果没有匹配的属性将会设置为 “null”。 在这个例子中，如果 getDatabaseProductName() 返回“Oracle (DataDirect)”，databaseId 将被设置为“oracle”。
+		可以通过实现接口 org.apache.ibatis.mapping.DatabaseIdProvider 并在 mybatis-config.xml 中注册来构建自己的 DatabaseIdProvider
+
+	-->
+
+
+	<!-- 加载 映射文件 -->
+	<mappers>
+		<!-- sql mapper 配置 -->
+		<!--<mapper resource="db/sqlmap/vend.xml"/>-->
+
+		<!-- 使用Mapper代理的配置 -->
+		<!-- 配置单个 -->
+		<!--通过resource方法一次加载一个映射文件 -->
+		<!--<mapper resource="db/mapper/VendMapper.xml"/>
+		<mapper resource="db/mapper/ProductMapper.xml"/>-->
+
+		<!-- 通过mapper接口加载单个 映射文件
+		遵循一些规范：需要将mapper接口类名和mapper.xml映射文件名称保持一致，且在一个目录 中
+		上边规范的前提是：使用的是mapper代理方法
+		 -->
+		<!--<mapper class="com.study.db.mapperdao.VendMapper"/>-->
+		<!--<mapper class="com.study.db.mapperdao.ProductMapper"/>-->
+
+
+		<!-- 批量加载mapper
+		指定mapper接口的包名，mybatis自动扫描包下边所有mapper接口进行加载
+		遵循一些规范：需要将mapper接口类名和mapper.xml映射文件名称保持一致，且在一个目录 中
+		上边规范的前提是：使用的是mapper代理方法
+		 -->
+		<!-- 配置多个 -->
+		<!--<package name="com.study.db.mapperdao"/>
+		<package name="com.study.mybatis_order"/>-->
+	</mappers>
+
+</configuration>

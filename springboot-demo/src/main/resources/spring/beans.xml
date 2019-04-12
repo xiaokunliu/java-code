@@ -18,7 +18,7 @@
     <!--
         启动类的自动扫描器
     -->
-    <!--<context:component-scan base-package="com.dtrees.spring.core.bean"/>-->
+    <!--<context:component-scan base-package="com.dtrees.ssmre.bean"/>-->
 
     <!--
         通过构造器注入
@@ -32,9 +32,9 @@
         -ref:这会提示Spring要进行装配的是引用，而不是字面量
         title-ref:要注入的bean的ID名称
     -->
-    <bean id="compactDisc" class="com.dtrees.spring.core.bean.SgtPeppers" p:title-ref=""></bean>
+    <bean id="compactDisc" class="com.dtrees.study.springinaction.bean.SgtPeppers" p:title-ref=""></bean>
 
-    <!--<bean id="cdPlayer" class="com.dtrees.spring.core.bean.CDPlayer">-->
+    <!--<bean id="cdPlayer" class="CDPlayer">-->
         <!--<constructor-arg ref="sgtPeppers1"/>-->
     <!--</bean>-->
 
@@ -46,13 +46,13 @@
         -ref:这是一个命名的约定,它会告诉Spring,正在装配的是一个bean的引用,这个bean的名字是compactDisc,而不是字面量“compactDisc”
         sgtPeppers1:要注入的bean的ID名称
     -->
-    <!--<bean id="cdPlayer2" class="com.dtrees.spring.core.bean.CDPlayer" c:compactDisc-ref="sgtPeppers1"></bean>-->
+    <!--<bean id="cdPlayer2" class="CDPlayer" c:compactDisc-ref="sgtPeppers1"></bean>-->
 
     <!--
         添加字面值
      -->
     <!--方式一-->
-    <!--<bean id="blankDisc" class="com.dtrees.spring.core.bean.BlankDisc">-->
+    <!--<bean id="blankDisc" class="BlankDisc">-->
         <!--<constructor-arg value="blank disc title"/>-->
         <!--<constructor-arg value="bland disc name"/>-->
         <!--&lt;!&ndash; 配置基本类型集合 &ndash;&gt;-->
@@ -75,6 +75,6 @@
     <!--</bean>-->
 
     <!--&lt;!&ndash;方式二&ndash;&gt;-->
-    <!--<bean id="blankDisc2" class="com.dtrees.spring.core.bean.BlankDisc" c:_0="title" c:_1="name">-->
+    <!--<bean id="blankDisc2" class="BlankDisc" c:_0="title" c:_1="name">-->
     <!--</bean>-->
 </beans>

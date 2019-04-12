@@ -1,8 +1,8 @@
 package com.dtrees.study.test;
 
 
-import com.dtrees.study.spring.core.profiles.ProfileBean;
-import com.dtrees.study.spring.core.profiles.ProfileConfig;
+import com.dtrees.study.springboot_j2ee.spring.core.profiles.ProfileBean;
+import com.dtrees.study.springboot_j2ee.spring.core.profiles.ProfileConfig;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

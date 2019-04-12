@@ -1,7 +1,7 @@
 package com.dtrees.study.test.web;
 
-import com.dtrees.study.spring.web.test.DemoService;
-import com.dtrees.study.spring.web.WebConfig;
+import com.dtrees.study.springboot_j2ee.spring.web.test.DemoService;
+import com.dtrees.study.springboot_j2ee.spring.web.WebConfig;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

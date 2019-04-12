@@ -92,6 +92,7 @@ public class FliterGreenApples {
 
         //using the thread run method
         Thread t = new Thread(() -> System.out.println("hello run method"));
+        t.start();
     }
 }
 

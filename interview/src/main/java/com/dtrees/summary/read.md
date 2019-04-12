@@ -85,7 +85,7 @@
     * Jenkins/Nexus
     * 自动化测试,sonar
     
-> Docker 容器原理
+> Docker与K8S
     
 
 > 工作中遇到的问题

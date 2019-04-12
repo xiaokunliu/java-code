@@ -377,7 +377,7 @@ public class RestSpringBeanProcessor extends SpringBeanProcessor {
 
 	/**
 	 * Register all of the resources into RESTEasy only when Spring finishes
-	 * it's life-cycle and the spring singleton bean creation is completed
+	 * it's life-cycle and the ssm singleton bean creation is completed
 	 */
 	@Override
 	public void onApplicationEvent(ApplicationEvent event) {
