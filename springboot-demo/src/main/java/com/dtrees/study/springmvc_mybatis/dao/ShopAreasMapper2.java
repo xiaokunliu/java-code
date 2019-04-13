@@ -60,6 +60,7 @@ public interface ShopAreasMapper2 {
 
     // TODO
     // 使用一对一 / 一对多 / 多对多
-
+    
     // 注解的动态的sql -- sql构建器
+
 }

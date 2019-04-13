@@ -9,7 +9,7 @@ import java.util.NoSuchElementException;
 
 public class DeepSearch {
 
-    // 深度优先算法
+    // 深度优先算法  -- 使用栈
     private static LinkedList<DNode> stack = new LinkedList<>();
 
     static {
