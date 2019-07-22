@@ -1,0 +1,88 @@
+#mainly record some website with java framework or developer util jar to make it more easy work
+#apache common
+http://commons.apache.org/
+
+#maven repository
+http://mvnrepository.com/
+
+
+##google
+https://developers.google.com
+https://developers.google.com/api-client-library/java/
+https://github.com/google/guava
+
+##android
+
+
+##framework
+http://www.mybatis.org/mybatis-3/
+https://github.com/mybatis/
+
+================================mybatis逆向工程start=================================
+http://www.mybatis.org/generator/quickstart.html
+http://www.mybatis.org/generator/running/runningWithMaven.html
+https://github.com/mybatis/generator/releases
+https://github.com/mybatis/generator
+================================mybatis逆向工程end====================================
+
+http://hibernate.org/
+http://docs.jboss.org/hibernate/orm/5.1/quickstart/html_single/
+http://hibernate.org/orm/documentation
+
+http://spring.io
+http://projects.spring.io/
+http://docs.spring.io/spring-framework/docs
+http://docs.spring.io/spring/docs/4.3.0.RC1/spring-framework-reference/htmlsingle/
+##for spring dtd
+http://www.springframework.org/schema/
+
+
+##distributed cache
+>>ehcache
+http://www.ehcache.org/
+http://www.codeceo.com/article/java-ehcache.html
+https://github.com/mybatis/ehcache-cache/releases
+
+>>memcached
+https://github.com/gwhalin/Memcached-Java-Client/downloads
+https://cloud.google.com/appengine/docs/java/memcache/
+http://blog.csdn.net/hjm4702192/article/details/7894080
+
+>>redis
+https://github.com/karlseguin/the-little-redis-book
+http://redisdoc.com/
+http://redis.io/
+
+other java cache
+1）Cacheonix
+http://www.cacheonix.com/
+http://www.codeceo.com/article/java-cacheonix.html
+
+2）ASimpleCache
+https://github.com/yangfuhai/ASimpleCache
+http://www.codeceo.com/article/asimplecache-android-cache.html
+
+3）JBoss Cache
+http://jbosscache.jboss.org/
+http://www.codeceo.com/article/jboss-cache-java.html
+
+4）Voldemort
+http://www.project-voldemort.com/voldemort/
+http://www.codeceo.com/article/voldemort-java-key-value-catch.html
+
+
+=====================================框架官网文档==================================
+spring:http://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle/
+spring-jpa:http://docs.spring.io/spring-data/jpa/docs/current/reference/html/
+hibernate:http://hibernate.org/orm/documentation/getting-started/
+          https://docs.jboss.org/hibernate/orm/
+struts2:https://cwiki.apache.org/confluence/display/WW/Guides
+mybatis:http://www.mybatis.org/mybatis-3/
+
+
+mina:https://github.com/mina-deploy/mina
+     https://mina.apache.org/mina-project/developer-guide.html
+
+netty:https://github.com/netty/netty
+      http://netty.io/wiki/user-guide.html
+
