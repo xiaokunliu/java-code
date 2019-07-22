@@ -6,6 +6,8 @@
 
 	<!--
 		官网文档：http://www.mybatis.org/mybatis-3/zh/configuration.html
+		https://github.com/mybatis/mybatis-3/issues/35
+		mybatis-plus 实现通用的mybatis基础操作
 	-->
 
 	<!-- 加载属性文件 -->
