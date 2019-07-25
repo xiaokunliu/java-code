@@ -18,7 +18,7 @@
     <!--
         启动类的自动扫描器
     -->
-    <!--<context:component-scan base-package="com.dtrees.ssmre.bean"/>-->
+    <!--<context:component-scan base-package="com.xiaokunliunliu.ssmre.bean"/>-->
 
     <!--
         通过构造器注入
@@ -32,7 +32,7 @@
         -ref:这会提示Spring要进行装配的是引用，而不是字面量
         title-ref:要注入的bean的ID名称
     -->
-    <bean id="compactDisc" class="com.dtrees.study.springinaction.bean.SgtPeppers" p:title-ref=""></bean>
+    <bean id="compactDisc" class="com.xiaokunliu.study.springinaction.bean.SgtPeppers" p:title-ref=""></bean>
 
     <!--<bean id="cdPlayer" class="CDPlayer">-->
         <!--<constructor-arg ref="sgtPeppers1"/>-->

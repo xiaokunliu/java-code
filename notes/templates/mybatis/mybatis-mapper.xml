@@ -27,8 +27,8 @@
 -->
 
 
-<mapper namespace="com.dtrees.mapper.products.ProductsMapper">
-    <resultMap id="beanResult" type="com.dtrees.domain.products.Products">
+<mapper namespace="com.xiaokunliu.mapper.products.ProductsMapper">
+    <resultMap id="beanResult" type="com.xiaokunliu.domain.products.Products">
         <id column="id" property="id" javaType="long"/>
         <result column="shop_id" property="shopId" javaType="long"/>
         <result column="shop_name" property="shopName" javaType="java.lang.String"/>
@@ -57,7 +57,7 @@
         id, shop_id, shop_name, product_upc, product_mpn, product_ean, product_title, product_subtitle, product_sku, product_name, create_time, product_thunmups, product_cost, product_sell_price, product_discount_price, product_promotion_id, product_listing_time, product_end_time, product_status, product_host_url, product_sold, product_stock
     </sql>
 
-    <insert id="add" parameterType="com.dtrees.domain.products.Products">
+    <insert id="add" parameterType="com.xiaokunliu.domain.products.Products">
         INSERT INTO ss_products(shop_id,
                                 shop_name,
                                 product_upc,
@@ -159,7 +159,7 @@
     <!--
         动态sql -- 条件查询
     -->
-    <select id="findProductsByCondition" parameterType="com.dtrees.conditons.products.ProductCondition" resultMap="beanResult">
+    <select id="findProductsByCondition" parameterType="com.xiaokunliu.conditons.products.ProductCondition" resultMap="beanResult">
         SELECT <include refid="base_query"/> FROM ss_products WHERE 1=1
         <if test="productStatus!=-1">
             AND product_status=#{productStatus}
@@ -185,7 +185,7 @@
         SELECT <include refid="base_query"/> FROM ss_products WHERE product_sku = #{sku}
     </select>
 
-    <select id="queryProductCountsByCondition" parameterType="com.dtrees.conditons.products.ProductCondition" resultType="java.lang.Integer">
+    <select id="queryProductCountsByCondition" parameterType="com.xiaokunliu.conditons.products.ProductCondition" resultType="java.lang.Integer">
         SELECT count(0) FROM ss_products WHERE 1=1
         <if test="productStatus!=-1">
             AND product_status=#{productStatus}
@@ -205,7 +205,7 @@
     <!--
         动态sql --- 条件更新数据
     -->
-    <update id="updateProduct" parameterType="com.dtrees.domain.products.Products">
+    <update id="updateProduct" parameterType="com.xiaokunliu.domain.products.Products">
         UPDATE ss_products
         <trim prefix="SET" suffixOverrides=",">
             <if test="productUPC!=null">

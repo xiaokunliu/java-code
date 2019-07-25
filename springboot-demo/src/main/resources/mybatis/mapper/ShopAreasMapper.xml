@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
-<mapper namespace="com.dtrees.study.springmvc_mybatis.dao.ShopAreasMapper">
-    <resultMap id="shopArea" type="com.dtrees.study.springmvc_mybatis.domain.ShopAreas">
+<mapper namespace="com.xiaokunliu.study.springmvc_mybatis.dao.ShopAreasMapper">
+    <resultMap id="shopArea" type="com.xiaokunliu.study.springmvc_mybatis.domain.ShopAreas">
         <id column="id" property="id" javaType="long"/>
         <result column="country_code" property="countryCode" javaType="java.lang.String"/>
         <result column="province" property="province" javaType="java.lang.String"/>

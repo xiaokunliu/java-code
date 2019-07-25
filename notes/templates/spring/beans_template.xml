@@ -18,7 +18,7 @@
                            http://mybatis.org/schema/mybatis-spring
                            http://mybatis.org/schema/mybatis-spring.xsd">
 
-    <!--<bean id="oderBean" class="com.dtrees.springmvc.bean.OrderBean" scope="session">-->
+    <!--<bean id="oderBean" class="com.xiaokunliunliu.springmvc.bean.OrderBean" scope="session">-->
         <!--<aop:scoped-proxy proxy-target-class="true"/>-->
     <!--</bean>-->
 

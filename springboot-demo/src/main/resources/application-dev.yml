@@ -9,7 +9,7 @@ server:
 mybatis:
   config-location: classpath:mybatis/mybatis-config.xml
   mapper-locations: classpath:mybatis/mapper/*.xml
-#  type-aliases-package: com.dtrees.domain.*
+#  type-aliases-package: com.xiaokunliu.domain.*
 
 # spring配置mongodb的时候建议使用uri，因为存在部分字符解析问题，比如密码会导致连接授权失败
 spring:

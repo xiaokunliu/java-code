@@ -35,8 +35,8 @@
             autoMapping	如果设置这个属性，MyBatis将会为本结果映射开启或者关闭自动映射。 这个属性会覆盖全局的属性 autoMappingBehavior。默认值：未设置（unset）
 -->
 
-<mapper namespace="com.dtrees.mapper.products.ProductsMapper">
-    <resultMap id="beanResult" type="com.dtrees.domain.products.Products" autoMapping="true">
+<mapper namespace="com.xiaokunliu.mapper.products.ProductsMapper">
+    <resultMap id="beanResult" type="com.xiaokunliu.domain.products.Products" autoMapping="true">
         <id column="id" property="id" javaType="long"/>
         <result column="shop_id" property="shopId" javaType="long"/>
         <result column="shop_name" property="shopName" javaType="java.lang.String"/>

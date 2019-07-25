@@ -17,7 +17,7 @@
        <!--
             为包设置别名
        -->
-       <!--<package name="com.dtrees.springmvc_mybatis.dao"/>-->
+       <!--<package name="com.xiaokunliunliu.springmvc_mybatis.dao"/>-->
    </typeAliases>
 
     <!--
@@ -26,7 +26,7 @@
 		如果想覆盖对象工厂的默认行为，则可以通过创建自己的对象工厂来实现
 		ExampleObjectFactory为自定义的对象工厂
 	-->
-    <!--<objectFactory type="com.dtrees.study.springmvc_mybatis.tools.ExampleObjectFactory">-->
+    <!--<objectFactory type="com.xiaokunliunliu.study.springmvc_mybatis.tools.ExampleObjectFactory">-->
     <!--<property name="someProperty" value="100"/>-->
     <!--</objectFactory>-->
 
@@ -41,7 +41,7 @@
             通过 MyBatis 提供的强大机制，使用插件是非常简单的，只需实现 Interceptor 接口，并指定想要拦截的方法签名即可
     -->
     <!--<plugins>-->
-    <!--<plugin interceptor="com.dtrees.study.springmvc_mybatis.tools.ExamplePlugin">-->
+    <!--<plugin interceptor="com.xiaokunliunliu.study.springmvc_mybatis.tools.ExamplePlugin">-->
     <!--<property name="someProperty" value="100"/>-->
     <!--</plugin>-->
     <!--</plugins>-->
