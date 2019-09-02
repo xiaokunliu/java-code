@@ -16,7 +16,7 @@ import java.util.Properties;
  */
 public class JNDI {
 
-    // JNDI：Java Naming Directory Interface，java命名目录接口
+    // JNDI：Java Naming Directory Interface，java命名目录接口  -- 类似接口发布/暴露
 
     /**
      * JNDI应用：应用服务器通过上下文对象Context来进行查找对应的资源对象，context.lookup(jndi_name)

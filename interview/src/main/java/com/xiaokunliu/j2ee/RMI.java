@@ -16,7 +16,7 @@ import java.rmi.server.UnicastRemoteObject;
  */
 public class RMI {
 
-    // RMI： Remote Method Invoke，远程方法调用，仅是用于两个程序/系统之间都是用java代码实现的业务
+    // RMI： Remote Method Invoke，远程方法调用，仅是用于两个程序/系统之间都是用java代码实现的业务,封装两个端进行通讯的网络细节
 
     /**
      * RMI也是需要通过JNDI查找资源并访问远程服务对象

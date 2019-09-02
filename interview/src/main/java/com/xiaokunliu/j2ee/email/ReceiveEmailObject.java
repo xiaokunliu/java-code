@@ -1,6 +1,6 @@
 package com.xiaokunliu.j2ee.email;
 
-import javax.tools.FileObject;
+
 import java.io.File;
 import java.io.Serializable;
 import java.util.Date;
