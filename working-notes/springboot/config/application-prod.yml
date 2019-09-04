@@ -1,0 +1,90 @@
+spring:
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://rm-wz97u37n04izyls81141.mysql.rds.aliyuncs.com:3306/wasabi?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2b8&rewriteBatchedStatements=true
+      username: wasabi
+      password: wasabi@2019
+      # 初始连接数
+      initialSize: 5
+      # 最小连接池数量
+      minIdle: 10
+      # 最大连接池数量
+      maxActive: 20
+      # 配置获取连接等待超时的时间
+      maxWait: 60000
+      # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      timeBetweenEvictionRunsMillis: 60000
+      # 配置一个连接在池中最小生存的时间，单位是毫秒
+      minEvictableIdleTimeMillis: 300000
+      # 配置一个连接在池中最大生存的时间，单位是毫秒
+      maxEvictableIdleTimeMillis: 900000
+      # 配置检测连接是否有效
+      validationQuery: SELECT 1 FROM DUAL
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      statViewServlet:
+        enabled: true
+        url-pattern: /monitor/druid/*
+      filter:
+        stat:
+          # 慢SQL记录
+          log-slow-sql: true
+          slow-sql-millis: 1000
+          merge-sql: true
+        wall:
+          config:
+            multi-statement-allow: true
+  redis:
+    host: r-8vb8726aabfa0de4.redis.zhangbei.rds.aliyuncs.com
+    password:
+    database: 2
+    port: 6379
+    timeout: 2s
+  jackson:
+    time-zone: GMT+8
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+# 配置mybatis
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml
+  type-aliases-package: com.tianpaopao.admin.domain
+server:
+  port: 9000
+  # 外网必须指定IP
+  address: 127.0.0.1
+  servlet:
+    context-path: /admin
+    session:
+      timeout: 120m
+tpp:
+  settings:
+    login-uri: http://wasabi.tianpaopao.com/api/v1/login
+    forbidden-uri: http://wasabi.tianpaopao.com/api/v1/rooms/%s/toggle
+    withdraw-uri: http://wasabi.tianpaopao.com/api/v1/withdraw_audit
+    upload: http://wasabi.tianpaopao.com/api/v1/uploads
+    transaction: http://wasabi.tianpaopao.com/api/v1/transaction
+    recharge: http://wasabi.tianpaopao.com/api/v1/recharge
+    post-recharge: http://wasabi.tianpaopao.com/api/v1/post_recharge
+    credential: a6632253a
+    identifier: 28826411221
+    identifier-type: phone
+    priority-uri: http://wasabi.tianpaopao.com/api/v1/rooms/%s
+    rooms-priority: http://wasabi.tianpaopao.com/api/v1/rooms
+    update-Notice-uri: http://wasabi.tianpaopao.com/api/v1/rooms/
+    notification: http://wasabi.tianpaopao.com/api/v1/broadcast_msg
+    avatar: https://oss.tianpaopao.com/avatar/defaultAvatar.png
+    upload-real-location: /root/Projects/h5/
+    upload-relative-location: /
+    request-dns: http://wasabi.tianpaopao.com/h5
+    system-setting: http://wasabi.tianpaopao.com/api/v1/system_setting
+logging:
+  path: logs/
+  config: classpath:log4j2-prod.xml

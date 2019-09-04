@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.tianpaopao.admin.modules.sys.mapper.SensitiveWordMapper">
+    <resultMap id="beanResult" type="com.tianpaopao.admin.domain.SensitiveWord">
+       <id column="id" property="id" javaType="long"></id>
+        <result column="sensitive_word" property="sensitiveWord" javaType="java.lang.String"></result>
+        <result column="created_at" property="createdAt" javaType="java.util.Date"></result>
+    </resultMap>
+
+    <!--<sql id="base_query">-->
+
+    <!--</sql>-->
+    <delete id="deleteByIds">
+        DELETE FROM `sensitive_word` WHERE id in
+        <foreach item="id" index="index" collection="ids" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

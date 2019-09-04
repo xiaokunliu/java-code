@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--
+        设置全局
+    -->
+    <!--<settings>-->
+        <!--<setting name="" value=""/>-->
+    <!--</settings>-->
+    <settings>
+        <setting  name="mapUnderscoreToCamelCase"  value="true"/>
+    </settings>
+    <!--
+        设置别名
+    -->
+   <typeAliases>
+       <!--
+            为包设置别名
+       -->
+       <!--<package name="com.dtreess.model.users.mapper"/>-->
+   </typeAliases>
+</configuration>
