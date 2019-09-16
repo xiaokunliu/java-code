@@ -1,4 +1,3 @@
-[TOC]
 #### Java项目实战笔记
 ##### 1.面向对象编程
 ##### 1）模型
@@ -120,9 +119,5 @@
 	1. getProxyClass：用于创建动态代理类的字节码，其完整定义为：public static Class<?> getProxyClass(ClassLoader loader,Class<?>[] interface) throws IllegalArgumentException,loader为动态代理类的类加载器，interface是指定动态代理类所要实现的接口
 	2. newProxyInstance()：用于创建动态代理类的实例对象，其完整定义为：public static Object newProxyInstance(ClassLoader loader,Class<?>[] interface,InvocationHandler handler) throws IllegalArgumentException,loader为动态代理类的类加载器，interface是指定动态代理类所要实现的接口,handler指定与动态代理类关联的InvocationHandler对象，直接可以创建实例对象，相当于getProxyClass之后，再获取构造器，通过构造函数创建动态代理的实例对象
 	3. 作用：为保证程序设计的类具有单一性原则，即类中的每一个功能尽可能单一，而当一个完整的业务需要各个类的功能组合而成，为提高其可维护性和扩展性，可以使用代理将各个类的功能进行组合增强，有时候一个类的功能增强还可以使用包装的设计来增强类的功能，具体根据业务需要而定
-
-
-
-
 
 
