@@ -176,10 +176,10 @@
             <artifactId>lombok</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>org.javassist</groupId>
-            <artifactId>javassist</artifactId>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.javassist</groupId>-->
+            <!--<artifactId>javassist</artifactId>-->
+        <!--</dependency>-->
 
         <!-- zookeeper 第三方操作工具类 -->
         <!-- zookeeper 教程: https://blog.52itstyle.com/tag/zookeeper/ -->
@@ -196,15 +196,15 @@
         <!--</dependency>-->
 
         <!-- zxing -->
-        <dependency>
-            <groupId>com.google.zxing</groupId>
-            <artifactId>core</artifactId>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>com.google.zxing</groupId>-->
+            <!--<artifactId>core</artifactId>-->
+        <!--</dependency>-->
 
-        <dependency>
-            <groupId>net.sourceforge.nekohtml</groupId>
-            <artifactId>nekohtml</artifactId>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>net.sourceforge.nekohtml</groupId>-->
+            <!--<artifactId>nekohtml</artifactId>-->
+        <!--</dependency>-->
 
         <!--jdom -->
         <dependency>
@@ -245,6 +245,12 @@
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
             <version>4.5.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcprov-jdk15on</artifactId>
+            <version>RELEASE</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 </project>

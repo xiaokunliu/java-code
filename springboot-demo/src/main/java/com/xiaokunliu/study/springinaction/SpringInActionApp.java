@@ -1,4 +1,4 @@
-package com.xiaokunliu.study.springmvc_mybatis;
+package com.xiaokunliu.study.springinaction;
 
 import org.springframework.boot.Banner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -7,16 +7,15 @@ import org.springframework.context.annotation.ComponentScan;
 
 /**
  * project:java-code
- * file:SSMBootstrap
- * package:com.xiaokunliu.springmvc_mybatis
- * date:2019/4/3 11:29 PM
+ * file:SpringInActionApp
+ * package:com.xiaokunliu.study.springinaction
+ * date:2019/9/22 17:35
  * author:keithl
  */
 @SpringBootApplication
-//@ComponentScan(basePackages = {"com.xiaokunliu.study.springmvc_mybatis"})
-public class SSMBootstrap {
+public class SpringInActionApp {
 
     public static void main(String[] args) {
-        new SpringApplicationBuilder().bannerMode(Banner.Mode.OFF).run(args);
+        new SpringApplicationBuilder(SpringInActionApp.class).bannerMode(Banner.Mode.OFF).run(args);
     }
 }

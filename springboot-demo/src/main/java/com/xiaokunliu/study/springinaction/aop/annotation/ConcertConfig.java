@@ -1,4 +1,4 @@
-package com.xiaokunliu.study.springinaction.aop;
+package com.xiaokunliu.study.springinaction.aop.annotation;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -7,7 +7,7 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 @Configuration
 @EnableAspectJAutoProxy
-@ComponentScan
+@ComponentScan(basePackages = {"com.xiaokunliu.study.springinaction.aop"})
 public class ConcertConfig {
 
     @Bean

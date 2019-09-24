@@ -72,6 +72,13 @@ execution(* com.dtreess.spring.core.aop.Performance.perform(..)) and bean('aop_b
 execution(* com.dtreess.spring.core.aop.Performance.perform(..)) and !bean('aop_bean') 
 ```
 
+* 基于声明式的AOP
+
+
+* 基于注解的AOP
+
+
+
 
 
 
