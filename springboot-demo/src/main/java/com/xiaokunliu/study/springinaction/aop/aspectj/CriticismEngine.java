@@ -9,6 +9,7 @@ package com.xiaokunliu.study.springinaction.aop.aspectj;
  */
 public interface CriticismEngine {
 
-    String getCriticism();
+    void doBeforeCriticism();
 
+    void doAfterCriticism();
 }

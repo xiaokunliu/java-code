@@ -10,7 +10,7 @@ import java.util.List;
 
 @Configuration
 @EnableAspectJAutoProxy
-@ComponentScan(basePackages = {"com.xiaokunliu.study.springinaction.aop"})
+@ComponentScan(basePackages = {"com.xiaokunliu.study.springinaction.aop.annotation"})
 public class AopCompactDiscConfig {
 
 //   @Bean(value = "aopCompactDisc")

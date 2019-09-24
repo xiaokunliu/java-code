@@ -1,13 +1,11 @@
 package com.xiaokunliu.study.springinaction.aop.aspectj;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * 创建Aspect面向切面
+ * TODO
  */
 public aspect AopAspect {
-    private final Logger LOG = LoggerFactory.getLogger(AopAspect.aspectOf().toString());
 
     private CriticismEngine criticismEngine;
 
@@ -21,22 +19,24 @@ public aspect AopAspect {
 
     before(): performance() {
         System.out.println("before performance ...");
-        criticismEngine.getCriticism();
+        criticismEngine.doBeforeCriticism();
     }
 
     after(): performance() {
-        criticismEngine.getCriticism();
         System.out.println("after performance ... ");
+        criticismEngine.doAfterCriticism();
     }
 
-    around(): performance() {
-        try{
-            System.out.println("before performance ...");
-            criticismEngine.getCriticism();
-            System.out.println("after performance ... ");
-        }catch (Exception e){
-            LOG.error(e.getMessage(), e);
-            System.out.println("throwing the performance ...");
-        }
-    }
+//    around(): performance() {
+//        try{
+//            System.out.println("before performance ...");
+//            criticismEngine.doBeforeCriticism();
+//
+//            System.out.println("after performance ... ");
+//            criticismEngine.doAfterCriticism();
+//        }catch (Exception e){
+//            LOG.error(e.getMessage(), e);
+//            System.out.println("throwing the performance ...");
+//        }
+//    }
 }

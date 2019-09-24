@@ -20,78 +20,103 @@
 
 
     <!--AOP 基于Xml配置-->
-    <context:component-scan base-package="com.xiaokunliu.study.springinaction"/>
+    <!--<context:component-scan base-package="com.xiaokunliu.study.springinaction"/>-->
 
-    <aop:aspectj-autoproxy />
+    <!--<aop:aspectj-autoproxy />-->
 
     <!--声明切面为一个bean-->
-    <bean id="audience" class="com.xiaokunliu.study.springinaction.aop.xml.Audience"/>
+    <!--<bean id="audience" class="com.xiaokunliu.study.springinaction.aop.xml.Audience"/>-->
 
     <!--
         定义spring配置的切面
     -->
-    <aop:config>
-        <!-- 切面 -->
-        <aop:aspect ref="audience">
-            <!--  切点 -->
-            <aop:pointcut id="performance" expression="execution(* com.xiaokunliu.study.springinaction.aop.annotation.Performance.perform(..))"/>
-            <!-- 通知方法 -->
-            <aop:before method="silenceCellPhones" pointcut-ref="performance"/>
-            <aop:after method="takeSeats" pointcut-ref="performance"/>
-            <aop:after-returning method="applause" pointcut-ref="performance"/>
-            <aop:after-throwing method="demandRefund" pointcut-ref="performance"/>
+    <!--<aop:config>-->
+        <!--&lt;!&ndash; 切面 &ndash;&gt;-->
+        <!--<aop:aspect ref="audience">-->
+            <!--&lt;!&ndash;  切点 &ndash;&gt;-->
+            <!--<aop:pointcut id="performance" expression="execution(* com.xiaokunliu.study.springinaction.aop.annotation.Performance.perform(..))"/>-->
+            <!--&lt;!&ndash; 通知方法 &ndash;&gt;-->
+            <!--<aop:before method="silenceCellPhones" pointcut-ref="performance"/>-->
+            <!--<aop:after method="takeSeats" pointcut-ref="performance"/>-->
+            <!--<aop:after-returning method="applause" pointcut-ref="performance"/>-->
+            <!--<aop:after-throwing method="demandRefund" pointcut-ref="performance"/>-->
 
-            <!-- 声明环绕通知 -->
-            <aop:around method="watchPerformance" pointcut-ref="performance"/>
-        </aop:aspect>
-    </aop:config>
+            <!--&lt;!&ndash; 声明环绕通知 &ndash;&gt;-->
+            <!--<aop:around method="watchPerformance" pointcut-ref="performance"/>-->
+        <!--</aop:aspect>-->
+    <!--</aop:config>-->
 
     <!--
         AOP 传递通知参数
     -->
-    <bean id="tracker" class="com.xiaokunliu.study.springinaction.aop.xml.AopTrackCounter"/>
+    <!--<bean id="tracker" class="com.xiaokunliu.study.springinaction.aop.xml.AopTrackCounter"/>-->
 
-    <bean id="blankDisc" class="com.xiaokunliu.study.springinaction.aop.xml.AopBlankDisc">
-      <constructor-arg value="Blank title"/>
-      <constructor-arg value="Blank name"/>
-        <property name="list">
-            <list>
-                <value>A1</value>
-                <value>A2</value>
-                <value>A3</value>
-                <value>A4</value>
-                <value>A5</value>
-                <value>A6</value>
-            </list>
-        </property>
-    </bean>
+    <!--<bean id="blankDisc" class="com.xiaokunliu.study.springinaction.aop.xml.AopBlankDisc">-->
+      <!--<constructor-arg value="Blank title"/>-->
+      <!--<constructor-arg value="Blank name"/>-->
+        <!--<property name="list">-->
+            <!--<list>-->
+                <!--<value>A1</value>-->
+                <!--<value>A2</value>-->
+                <!--<value>A3</value>-->
+                <!--<value>A4</value>-->
+                <!--<value>A5</value>-->
+                <!--<value>A6</value>-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>-->
 
     <!--
            注意参数名称要方法名称对应上去
     -->
-    <aop:config>
-        <aop:aspect ref="tracker">
-            <aop:pointcut id="tracker_performance"
-                          expression="execution(* com.xiaokunliu.study.springinaction.aop.xml.AopCompactDisc.play(java.lang.String)) and args(trackedNumber)"/>
-            <aop:before method="trackedPlay" pointcut-ref="tracker_performance" arg-names="trackedNumber"/>
-        </aop:aspect>
-    </aop:config>
+    <!--<aop:config>-->
+        <!--<aop:aspect ref="tracker">-->
+            <!--<aop:pointcut id="tracker_performance"-->
+                          <!--expression="execution(* com.xiaokunliu.study.springinaction.aop.xml.AopCompactDisc.play(java.lang.String)) and args(trackedNumber)"/>-->
+            <!--<aop:before method="trackedPlay" pointcut-ref="tracker_performance" arg-names="trackedNumber"/>-->
+        <!--</aop:aspect>-->
+    <!--</aop:config>-->
 
     <!--
         AOP 引入新的功能
     -->
-    <aop:config>
-        <aop:aspect>
-            <aop:declare-parents types-matching="com.xiaokunliu.study.springinaction.aop.xml.Performance+"
-                                 implement-interface="com.xiaokunliu.study.springinaction.aop.xml.Encorable"
-                                 default-impl="com.xiaokunliu.study.springinaction.aop.xml.DefaultEncorable"/>
-        </aop:aspect>
-    </aop:config>
+    <!--<aop:config>-->
+        <!--<aop:aspect>-->
+            <!--<aop:declare-parents types-matching="com.xiaokunliu.study.springinaction.aop.xml.Performance+"-->
+                                 <!--implement-interface="com.xiaokunliu.study.springinaction.aop.xml.Encorable"-->
+                                 <!--default-impl="com.xiaokunliu.study.springinaction.aop.xml.DefaultEncorable"/>-->
+        <!--</aop:aspect>-->
+    <!--</aop:config>-->
 
+    <!-- ============================================================================================================== -->
     <!--
         引入AspectJ，注入AspectJ声明的切面对象bean
     -->
-    <bean id="aopAspect" class="com.xiaokunliu.study.springinaction.aop.aspectj.AopAspect" factory-method="aspectOf">
+    <!--
+        或者在注解签名加上
+        使用@Configuration的类上加入@EnableSpringConfigured注解
+    -->
+    <!--<context:spring-configured />-->
 
+    <!--
+        对于AspectJ的知识 先暂停
+        https://docs.spring.io/spring/docs/2.5.x/reference/aop.html
+        参考Aspectj 实战
+    -->
+
+    <bean id="criticismEngine" class="com.xiaokunliu.study.springinaction.aop.aspectj.CriticismEngineImpl"/>
+    <!--
+        Spring无法创建切面AopAspect，AopAspect是AspectJ在运行时期生成的，通过其提供的静态方法aspectOf（）创建切面单例，
+        等到Spring为切面注入属性criticismEngine的时候，其实已经切面已经是实例化，这时候通过属性注入criticismEngine
+    -->
+    <bean id="aopAspect" class="com.xiaokunliu.study.springinaction.aop.aspectj.AopAspect" factory-method="aspectOf">
+        <property name="criticismEngine" ref="criticismEngine"/>
     </bean>
+
+    <bean id="performance" class="com.xiaokunliu.study.springinaction.aop.aspectj.AopPerformanceImpl"
+          depends-on="com.xiaokunliu.study.springinaction.aop.aspectj.AopAspect"/>
+
+    <aop:aspectj-autoproxy>
+        <aop:include name="performance"/>
+    </aop:aspectj-autoproxy>
 </beans>

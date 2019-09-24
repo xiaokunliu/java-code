@@ -10,7 +10,12 @@ package com.xiaokunliu.study.springinaction.aop.aspectj;
 public class CriticismEngineImpl implements CriticismEngine {
 
     @Override
-    public String getCriticism() {
-        return this.getClass().getName();
+    public void doBeforeCriticism() {
+        System.out.println("CriticismEngineImpl have not do any thing before Criticism");
+    }
+
+    @Override
+    public void doAfterCriticism() {
+        System.out.println("CriticismEngineImpl have done after Criticism");
     }
 }
