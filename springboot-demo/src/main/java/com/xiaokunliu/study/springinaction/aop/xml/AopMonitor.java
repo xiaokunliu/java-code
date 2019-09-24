@@ -1,4 +1,4 @@
-package com.xiaokunliu.study.springinaction.aop.annotation;
+package com.xiaokunliu.study.springinaction.aop.xml;
 
 /**
  * project:java-code
@@ -7,7 +7,7 @@ package com.xiaokunliu.study.springinaction.aop.annotation;
  * date:2019/9/22 21:30
  * author:keithl
  */
-public interface Encorable {
+public interface AopMonitor {
 
     // 将这个接口的调用应用到Performance实现中
     void perfermEncorable();

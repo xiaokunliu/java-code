@@ -1,8 +1,5 @@
 package com.xiaokunliu.study.springinaction.aop.xml;
 
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -14,7 +11,6 @@ import java.util.concurrent.ConcurrentHashMap;
  * date:2019/9/22 17:53
  * author:keithl
  */
-//@Aspect
 public class AopTrackCounter {
 
     /**
@@ -23,11 +19,7 @@ public class AopTrackCounter {
      */
     private Map<String, Integer> trackedCounters = new ConcurrentHashMap<>();
 
-//    @Pointcut("execution(* com.xiaokunliu.study.springinaction.aop.xml.AopCompactDisc.play(java.lang.String)) && args(trackedNumber)")
-    public void trackedPlay(String trackedNumber){}
 
-
-//    @Before("trackedPlay(trackedNumber)")
     public void countTracked(String trackedNumber){
         int counter = getCountTrack(trackedNumber);
         trackedCounters.put(trackedNumber, counter + 1);

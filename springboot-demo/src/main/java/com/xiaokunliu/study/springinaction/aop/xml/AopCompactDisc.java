@@ -6,6 +6,5 @@ package com.xiaokunliu.study.springinaction.aop.xml;
 
 public interface AopCompactDisc {
 
-//    void playTack(int trackNumber);
     void play(String trackedNumber);
 }
