@@ -26,6 +26,11 @@
 > gitbook
 
 * https://es.xiaoleilu.com/
-* 
 
-
+> 官网学习
+```text
+## J2EE参考官网
+https://www.oracle.com/java/technologies/java-ee-glance.html
+## oracle 
+https://docs.oracle.com/en/
+```
