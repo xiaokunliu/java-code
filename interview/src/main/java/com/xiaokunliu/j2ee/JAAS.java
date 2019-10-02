@@ -8,4 +8,8 @@ package com.xiaokunliu.j2ee;
  * author:keithl
  */
 public class JAAS {
+
+    // Java 认证和授权服务，Java Authentication and Authorization Service
+
+
 }

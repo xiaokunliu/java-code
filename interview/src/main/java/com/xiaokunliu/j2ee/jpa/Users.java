@@ -159,5 +159,8 @@ public class Users {
         this.userName = userName;
         this.userSex = userSex;
     }
+
+    public Users() {
+    }
 }
 
