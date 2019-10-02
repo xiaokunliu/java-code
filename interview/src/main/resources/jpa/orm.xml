@@ -1,0 +1,24 @@
+<entity-mappings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xmlns="http://java.sun.com/xml/ns/persistence/orm"
+                 xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                                     http://java.sun.com/xml/ns/persistence/orm_1_0.xsd" version="1.0">
+
+    <persistence-unit-metadata>
+        <persistence-unit-defaults>
+            <!--
+                配置默认的全局监听器
+            -->
+            <entity-listeners>
+                <entity-listener class="com.xiaokunliu.j2ee.jpa.life.PersonListener">
+                    <pre-persist method-name="prePersist"/>
+                    <post-persist method-name="postPersist"/>
+                    <post-load method-name="postLoad"/>
+                    <pre-update method-name="preUpdate"/>
+                    <post-update method-name="postUpdate"/>
+                    <pre-remove method-name="preRemove"/>
+                    <post-remove method-name="postRemove"/>
+                </entity-listener>
+            </entity-listeners>
+        </persistence-unit-defaults>
+    </persistence-unit-metadata>
+</entity-mappings>

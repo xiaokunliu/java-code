@@ -1,9 +1,11 @@
-package com.xiaokunliu.j2ee.jpa;
+package com.xiaokunliu.j2ee.jpa.double2.one2one;
+
+import com.xiaokunliu.j2ee.jpa.Cat;
+import com.xiaokunliu.j2ee.jpa.Name;
+import com.xiaokunliu.j2ee.jpa.Season;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * 定义实体类,通过添加注解的方式定义实体类与数据库的数据表映射关系
@@ -11,32 +13,9 @@ import java.util.Set;
  * date:2019/9/13 18:58
  * author:keithl
  */
-
-/**
- * POJO:
- *      1. It doesn’t have special restrictions other than those forced by Java language.
- *      2. It doesn’t provide much control on members.
- *      3. It can implement Serializable interface.
- *      4. Fields can be accessed by their names.
- *      5. Fields can have any visiblity.
- *      6. There can be a no-arg constructor.
- *      7. It is used when you don’t want to give restriction on your members and give user complete access of your entity
- * JavaBean:
- *      1. It is a special POJO which have some restrictions
- *      2. It provides complete control on members.
- *      3. It should implement serializable interface.
- *      4. Fields are accessed only by getters and setters.
- *      5. Fields have only private visiblity.
- *      6. It must have a no-arg constructor.
- *      7. It is used when you want to provide user your entity but only some part of your entity.
- */
 @Entity
 @Table(name = "ss_users")
-@SecondaryTable(name = "ss_users_detail", pkJoinColumns = @PrimaryKeyJoinColumn(name = "user_id"))
-//@IdClass(Name.class)  // 联合主键 -- 方式1
-public class Users {
-
-    // SecondaryTable: 实体映射到多个表，pkJoinColumns指定外键映射信息
+public class JPAUsers {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -79,16 +58,9 @@ public class Users {
     })
     private Cat cat;
 
-//    // 单向 1 一 对 N 的复合关联
-//    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, targetEntity = Address.class)
-//    @JoinColumn(name = "user_id", nullable = false)     // 对应在address表中显示的外键字段user_id
-//    private Set<Address> addresses = new HashSet<>();
-
-    // 单向 N - N 关联  建立中间表进行关联
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, targetEntity = Address.class)
-    @JoinTable(name = "user_address", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "address_id"))
-    private Set<Address> addresses = new HashSet<>();
-
+    // 双向 1 - 1 关联
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY, targetEntity = JPAAddress.class)
+    private JPAAddress address;
 
     public long getId() {
         return id;
