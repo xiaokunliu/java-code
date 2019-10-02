@@ -1,5 +1,6 @@
 package com.xiaokunliu.j2ee.jpa;
 
+
 import javax.persistence.*;
 
 /**
@@ -11,6 +12,18 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "ss_address")
+@NamedNativeQuery(name = "address_query", query = "select a.id, a.detail from ss_address a where a.id > ?", resultSetMapping = "address_mapping")
+@SqlResultSetMapping(name = "address_mapping",
+        entities = {
+                @EntityResult(entityClass = com.xiaokunliu.j2ee.jpa.Address.class, fields = {
+                        @FieldResult(name = "id", column = "id"),
+                        @FieldResult(name = "detail", column = "detail")
+                })},
+        columns = {
+                @ColumnResult(name = "id"),
+                @ColumnResult(name = "detail"),
+        }
+)
 public class Address {
 
     @Id

@@ -33,6 +33,7 @@ import java.util.Set;
 @Entity
 @Table(name = "ss_users")
 @SecondaryTable(name = "ss_users_detail", pkJoinColumns = @PrimaryKeyJoinColumn(name = "user_id"))
+@NamedQuery(name = "user_query", query = "select users.userName, users.userName from Users users where users.id > ?1")
 //@IdClass(Name.class)  // 联合主键 -- 方式1
 public class Users {
 
@@ -152,6 +153,11 @@ public class Users {
 
     public void setName(Name name) {
         this.name = name;
+    }
+
+    public Users(String userName, int userSex) {
+        this.userName = userName;
+        this.userSex = userSex;
     }
 }
 
