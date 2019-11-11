@@ -1,0 +1,25 @@
+logging:
+  level: info
+server:
+  port: 9090
+  servlet:
+    context-path: /
+spring:
+  data:
+    mongodb:
+      host: 192.168.229.148
+      username: gamble
+      password: gamblepwd
+      database: gamble
+      port: 30000
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    database: 0
+    password:
+    timeout: 200s
+    jedis:
+      pool:
+        max-idle: 8
+        max-wait: 1s
+        min-idle: 0

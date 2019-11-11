@@ -1,0 +1,43 @@
+logging:
+  level: info
+
+server:
+  port: 9090
+  servlet:
+    context-path: /
+
+# 配置mybatis
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml
+#  type-aliases-package: com.xiaokunliu.domain.*
+
+# spring配置mongodb的时候建议使用uri，因为存在部分字符解析问题，比如密码会导致连接授权失败
+spring:
+  data:
+    mongodb:
+      uri: mongodb://album:##album123@localhost:27017/album
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    database: 0
+    password:
+    jedis:
+      pool:
+        min-idle: 0
+        max-idle: 8
+        max-active: 8
+        max-wait: 1s
+    timeout: 200s
+  thymeleaf:
+    cache: false
+    mode: HTML5
+    encoding: UTF-8
+    check-template: false
+  devtools:
+    restart:
+      enabled: true
+      exclude: static/**
+  session:
+    store-type: none
+debug: true

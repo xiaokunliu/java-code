@@ -1,0 +1,11 @@
+debug: false
+spring:
+  profiles:
+    active: dev
+  application:
+    name: cloud-app
+
+## 增加配置监控
+#management:
+#  security:
+#    enabled: false
