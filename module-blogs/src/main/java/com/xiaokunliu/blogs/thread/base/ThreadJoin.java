@@ -4,9 +4,6 @@ import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 /**
- * project:java-code
- * file:ThreadJoin
- * package:com.xiaokunliu.blogs.thread.base
  * date:2019/9/25 12:19
  * author:keithl
  */

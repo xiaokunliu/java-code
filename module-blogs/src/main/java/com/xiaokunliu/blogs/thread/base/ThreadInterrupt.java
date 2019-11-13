@@ -3,9 +3,6 @@ package com.xiaokunliu.blogs.thread.base;
 import java.util.concurrent.TimeUnit;
 
 /**
- * project:java-code
- * file:ThreadInterrupt
- * package:com.xiaokunliu.blogs.thread.base
  * date:2019/9/25 10:46
  * author:keithl
  */

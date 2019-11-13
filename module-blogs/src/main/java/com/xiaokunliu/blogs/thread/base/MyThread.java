@@ -1,9 +1,6 @@
 package com.xiaokunliu.blogs.thread.base;
 
 /**
- * project:java-code
- * file:MyThread
- * package:com.xiaokunliu.blogs.thread.base
  * date:2019/9/25 08:47
  * author:keithl
  */

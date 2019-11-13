@@ -3,9 +3,6 @@ package com.xiaokunliu.blogs.thread.base;
 import java.util.concurrent.FutureTask;
 
 /**
- * project:java-code
- * file:CreatedThread
- * package:com.xiaokunliu.blogs.thread.base
  * date:2019/9/25 08:46
  * author:keithl
  */
