@@ -1,0 +1,63 @@
+spring:
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://127.0.0.1:3306/squirrel?characterEncoding=utf8&useSSL=false&useTimeZone=true&serverTimezone=GMT%2b8&rewriteBatchedStatements=true
+      username: root
+      password: root123
+      # 初始连接数
+      initialSize: 5
+      # 最小连接池数量
+      minIdle: 5
+      # 最大连接池数量
+      maxActive: 20
+      # 配置获取连接等待超时的时间
+      maxWait: 3000
+      # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      timeBetweenEvictionRunsMillis: 60000
+      # 配置一个连接在池中最小生存的时间，单位是毫秒
+      minEvictableIdleTimeMillis: 300000
+      # 配置一个连接在池中最大生存的时间，单位是毫秒
+      maxEvictableIdleTimeMillis: 1800000
+      # 配置检测连接是否有效
+      validationQuery: SELECT 1 FROM DUAL
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      web-stat-filter:
+        enabled: true
+        url-pattern: /monitor/webstat/*
+      statViewServlet:
+        enabled: true
+        url-pattern: /monitor/druid/*
+      filter:
+        stat:
+          # 慢SQL记录
+          log-slow-sql: true
+          slow-sql-millis: 500
+          merge-sql: true
+        wall:
+          config:
+            multi-statement-allow: true
+  #  redis:
+  #    host: 127.0.0.1
+  #    password:
+  #    database: 2
+  #    port: 6379
+  #    timeout: 2s
+  jackson:
+    time-zone: GMT+8
+server:
+  port: 8080
+  # 外网必须指定IP
+  address: 127.0.0.1
+  servlet:
+    context-path: /v1/web
+    session:
+      timeout: 120m
+logging:
+  path: logs/
+  config: classpath:log4j2-local.xml

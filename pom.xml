@@ -20,6 +20,7 @@
         <module>module-commons</module>
         <module>module-j2ee</module>
         <module>module-payment</module>
+        <module>module-webdemo</module>
     </modules>
 
     <packaging>pom</packaging>
