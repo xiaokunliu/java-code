@@ -24,7 +24,7 @@ public class MysqlOperations<T> implements CRUDRepository<T> {
     private static Logger LOG = LoggerFactory.getLogger(MysqlOperations.class);
 
     @Autowired
-    private JdbcTemplate jdbcTemplate;
+    protected JdbcTemplate jdbcTemplate;
 
     private Class<T> entityClass;
 
@@ -34,11 +34,17 @@ public class MysqlOperations<T> implements CRUDRepository<T> {
         initParameters();
     }
 
+    public List<T> queryForEntityList(String sql, Object... args) {
+        List<Map<String, Object>> mapList = this.jdbcTemplate.queryForList(sql, args);
+        return mapListToEntityList(mapList);
+    }
+
     private void initParameters() {
         ParameterizedType parameterizedType = (ParameterizedType) this.getClass().getGenericSuperclass();
         this.entityClass = (Class<T>) parameterizedType.getActualTypeArguments()[0];
         this.tableName = this.entityClass.getAnnotation(DBTable.class).name();
     }
+
 
     @Override
     public int addEntity(T entity) throws Exception {
@@ -202,6 +208,22 @@ public class MysqlOperations<T> implements CRUDRepository<T> {
         return idName;
     }
 
+    protected StringBuilder buildQuerySql() {
+        StringBuilder sql = new StringBuilder();
+        Field[] fields = entityClass.getDeclaredFields();
+        sql.append("SELECT").append(" ");
+        for (Field field : fields) {
+            field.setAccessible(true);
+            String name = field.getAnnotation(DBColumn.class).name();
+            sql.append(name).append(",");
+        }
+        sql.deleteCharAt(sql.length() - 1);
+        sql.append(" ").append("FROM").append(" ").
+                append(tableName).append(" ").
+                append("WHERE").append(" ").append("1=1").append(" ");
+        return sql;
+    }
+
     private String fullDeleteSql(StringBuilder sql) {
         Field[] fields = entityClass.getDeclaredFields();
         String idName = null;
@@ -215,7 +237,7 @@ public class MysqlOperations<T> implements CRUDRepository<T> {
         return idName;
     }
 
-    protected T resultSetToEntity(ResultSet rs) {
+    private T resultSetToEntity(ResultSet rs) {
         try {
             T instance = entityClass.newInstance();
             Field[] fields = entityClass.getDeclaredFields();
@@ -231,7 +253,7 @@ public class MysqlOperations<T> implements CRUDRepository<T> {
         return null;
     }
 
-    protected List<T> mapListToEntityList(List<Map<String, Object>> mapList) {
+    private List<T> mapListToEntityList(List<Map<String, Object>> mapList) {
         try {
             List<T> list = Lists.newArrayList();
             for (Map<String, Object> map : mapList) {

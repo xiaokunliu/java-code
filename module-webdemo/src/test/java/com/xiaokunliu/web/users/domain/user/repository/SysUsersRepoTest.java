@@ -127,12 +127,12 @@ public class SysUsersRepoTest {
     }
 
     @Test
-    public void testDelete() throws Exception {
+    public void testDelete() {
         sysUsersRepo.deleteById(201);
     }
 
     @Test
-    public void testBatchDelete() throws Exception {
+    public void testBatchDelete() {
         List<Serializable> ids = Lists.newArrayList();
         ids.add(202);
         ids.add(203);
@@ -142,14 +142,21 @@ public class SysUsersRepoTest {
     }
 
     @Test
-    public void testQuery() throws Exception {
+    public void testQuery() {
         SysUsers sysUsers = sysUsersRepo.queryById(1);
         System.out.println(sysUsers);
     }
 
     @Test
-    public void testQueryLimited() throws Exception {
+    public void testQueryLimited() {
         List<SysUsers> users = sysUsersRepo.queryLimited(30, 20);
+        System.out.println(users);
+    }
+
+    @Test
+    public void testQueryByDeptId() {
+        long deptId = 90L;
+        List<SysUsers> users = sysUsersRepo.queryAllByDeptId(deptId);
         System.out.println(users);
     }
 }
