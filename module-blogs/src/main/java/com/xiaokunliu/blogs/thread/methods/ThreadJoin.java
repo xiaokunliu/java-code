@@ -1,4 +1,4 @@
-package com.xiaokunliu.blogs.thread.base;
+package com.xiaokunliu.blogs.thread.methods;
 
 import java.util.Date;
 import java.util.concurrent.TimeUnit;

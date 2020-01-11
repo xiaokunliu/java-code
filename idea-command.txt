@@ -22,6 +22,8 @@ http://wiki.jikexueyuan.com/project/intellij-idea-tutorial/keymap-mac-introduce.
 
 ## IDEA查看该类的所有子类:Ctrl + H
 ## IDEA查看该类的父类以及接口:右击 --> Diagrams --> Show Diagrams
+##
+
 
 ## 个人github
 java:https://github.com/xiaokunliu/java-code
