@@ -16,9 +16,9 @@ public class Sync2memory {
 
         // 场景： 现在有一个共享变量sharedVar，执行写操作需要耗时500ms，而有一个线程由于网络原因延迟读操作耗时600ms，另一个线程正常读操作
         // 期望的场景是希望写数据之后其他线程也知道数据已经发生改变了,需要读取最新的数据
-//        testForReadWrite();
+        testForReadWrite();
 //
-        testForReadWriteWithSync();
+//        testForReadWriteWithSync();
 
         TimeUnit.SECONDS.sleep(2L);
         System.out.printf("finish the thread task,the final sharedVar %s ....\n", sharedVar);
