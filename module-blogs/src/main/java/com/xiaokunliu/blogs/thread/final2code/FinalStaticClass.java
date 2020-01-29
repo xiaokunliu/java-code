@@ -5,7 +5,7 @@ package com.xiaokunliu.blogs.thread.final2code;
  * author:keithl
  * desc: business desc etc.
  */
-public class FinalSharedClass {
+public class FinalStaticClass {
 
     public final static int num;
     public final static DefineFinalObject defineFinalObject;
@@ -45,7 +45,7 @@ public class FinalSharedClass {
         new Thread() {
             @Override
             public void run() {
-                FinalSharedClass finalSharedClass = new FinalSharedClass();
+                FinalStaticClass finalSharedClass = new FinalStaticClass();
             }
         }.start();
 //
@@ -53,7 +53,7 @@ public class FinalSharedClass {
         new Thread() {
             @Override
             public void run() {
-                FinalSharedClass finalSharedClass = new FinalSharedClass();
+                FinalStaticClass finalSharedClass = new FinalStaticClass();
             }
         }.start();
 
