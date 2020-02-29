@@ -1,7 +1,0 @@
-debug: false
-logging:
-  level: info
-server:
-  port: 9090
-  servlet:
-    context-path: /

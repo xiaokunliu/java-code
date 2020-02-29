@@ -10,16 +10,9 @@
 
     <modules>
         <module>module-springboot</module>
-        <module>module-middleware</module>
-        <module>module-search</module>
         <module>module-springcloud</module>
-        <module>module-j2se</module>
         <module>module-interview</module>
-        <module>module-data2algorithm</module>
-        <module>module-blogs</module>
         <module>module-commons</module>
-        <module>module-j2ee</module>
-        <module>module-payment</module>
         <module>module-webdemo</module>
     </modules>
 
@@ -127,4 +120,5 @@
     <!--</plugin>-->
     <!--</plugins>-->
     <!--</build>-->
+
 </project>
