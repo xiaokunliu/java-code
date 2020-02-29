@@ -10,12 +10,11 @@
 
     <modules>
         <module>module-springboot</module>
-        <module>module-middleware</module>
+        <module>module-middleware-amq</module>
         <module>module-search</module>
         <module>module-springcloud</module>
         <module>module-j2se</module>
         <module>module-interview</module>
-        <module>module-data2algorithm</module>
         <module>module-blogs</module>
         <module>module-commons</module>
         <module>module-j2ee</module>
@@ -127,4 +126,39 @@
     <!--</plugin>-->
     <!--</plugins>-->
     <!--</build>-->
+
+    <profiles>
+        <profile>
+            <id>jdk-1.8</id>
+            <activation>
+                <jdk>1.8</jdk>
+            </activation>
+            <repositories>
+                <repository>
+                    <id>nexus</id>
+                    <name>local private nexus</name>
+                    <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                </repository>
+            </repositories>
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>nexus</id>
+                    <name>local private nexus</name>
+                    <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                </pluginRepository>
+            </pluginRepositories>
+        </profile>
+    </profiles>
 </project>

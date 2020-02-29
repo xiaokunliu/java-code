@@ -15,7 +15,7 @@ public class TestJMSQueueServer {
 
     static String uri = "tcp://127.0.0.1:61616";
 
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) {
         ConnectionFactory factory = new ActiveMQConnectionFactory(uri);
         Connection connection = factory.createConnection();
         connection.start();
