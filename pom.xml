@@ -10,9 +10,7 @@
 
     <modules>
         <module>module-springboot</module>
-        <module>module-springcloud</module>
-        <module>module-interview</module>
-        <module>module-commons</module>
+        <module>module-coding</module>
         <module>module-webdemo</module>
     </modules>
 
